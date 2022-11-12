@@ -30,33 +30,17 @@ public class Sedan extends Automobile{
 	 * 
 	 */
 	public void calculateSCT() {
-		if(getRoofType() == "regular") {
-			if(2001<=getProductionYear()&& getProductionYear()<=2008)
-				sct = (getEngineVolume()*0.2*0.5)/1.0;
-			else if(2012<=getProductionYear()&& getProductionYear()<=2017)
-				sct = (getEngineVolume()*0.2*0.5)/1.2;
-			else {
-				sct = (getEngineVolume()*0.2*0.5)/1.6;
-			}
-		}
-		else if(getRoofType() == "moonroof") {
-			if(2001<=getProductionYear()&& getProductionYear()<=2008)
-				sct = (getEngineVolume()*0.2*0.6)/1.0;
-			else if(2012<=getProductionYear()&& getProductionYear()<=2017)
-				sct = (getEngineVolume()*0.2*0.6)/1.2;
-			else {
-				sct = (getEngineVolume()*0.2*0.6)/1.6;
-			}
-		}
-		else {
-			if(2001<=getProductionYear()&& getProductionYear()<=2008)
-				sct = (getEngineVolume()*0.2*0.8)/1.0;
-			else if(2012<=getProductionYear()&& getProductionYear()<=2017)
-				sct = (getEngineVolume()*0.2*0.8)/1.2;
-			else {
-				sct = (getEngineVolume()*0.2*0.8)/1.6;
-			}
-		}
+		sct = (getEngineVolume()*0.2*calculateRoofTypeSCT())/calculateProductionYearSCT(getProductionYear());
+	}
+	/*
+	 * This method is a helper method to calculate sct value due to roof type. 
+	 */
+	private double calculateRoofTypeSCT(){
+		double roofTypeSCT = 0;
+		if(getRoofType() == "regular") roofTypeSCT = 0.5;
+		else if(getRoofType() == "moonroof") roofTypeSCT = 0.6;
+		else { roofTypeSCT = 0.8;}
+		return roofTypeSCT;
 	}
 	/**
 	 * This method is overriden method to check whether two sedan type automobiles are equal or not.

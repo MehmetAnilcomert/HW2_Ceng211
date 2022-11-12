@@ -29,41 +29,19 @@ public class Minivan extends Automobile{
 	 * 
 	 */
 	public void calculateSCT() {
-		if(getNumberOfSeats() == 4) {
-			if(2001<=getProductionYear()&& getProductionYear()<=2008)
-				sct = (0.6*1.0)/(getEngineVolume()+0.1);
-			else if (2012<=getProductionYear()&& getProductionYear()<=2017) {
-				sct = (0.6*1.2)/(getEngineVolume()+0.1);
-			}else {
-				sct = (0.6*1.6)/(getEngineVolume()+0.1);
-			}
-		}else if(getNumberOfSeats() == 5) {
-			if(2001<=getProductionYear()&& getProductionYear()<=2008)
-				sct = (0.6*1.0)/(getEngineVolume()+0.4);
-			else if (2012<=getProductionYear()&& getProductionYear()<=2017) {
-				sct = (0.6*1.2)/(getEngineVolume()+0.4);
-			}else {
-				sct = (0.6*1.6)/(getEngineVolume()+0.4);
-			}
-		}else if(getNumberOfSeats() == 6) {
-			if(2001<=getProductionYear()&& getProductionYear()<=2008)
-				sct = (0.6*1.0)/(getEngineVolume()+0.6);
-			else if (2012<=getProductionYear()&& getProductionYear()<=2017) {
-				sct = (0.6*1.2)/(getEngineVolume()+0.6);
-			}else {
-				sct = (0.6*1.6)/(getEngineVolume()+0.6);
-			}
-		}else{
-			if(2001<=getProductionYear()&& getProductionYear()<=2008)
-				sct = (0.6*1.0)/(getEngineVolume()+0.8);
-			else if (2012<=getProductionYear()&& getProductionYear()<=2017) {
-				sct = (0.6*1.2)/(getEngineVolume()+0.8);
-			}else {
-				sct = (0.6*1.6)/(getEngineVolume()+0.8);
-			}
-		}
+		sct = (0.6*calculateProductionYearSCT(numberOfSeats))/(getEngineVolume()+calculateNumberOfSeatSCT());
 	}
-	
+	/*
+	 * This method is a helper method to calculate sct value due to number of seats. 
+	 */
+	private double calculateNumberOfSeatSCT() {
+		double numberOfSeatSCT = 0;
+		if(getNumberOfSeats() == 4) numberOfSeatSCT = 0.1;
+		else if(getNumberOfSeats() == 5) numberOfSeatSCT = 0.4;
+		else if(getNumberOfSeats() == 6) numberOfSeatSCT = 0.6;
+		else { numberOfSeatSCT = 0.8;}
+		return numberOfSeatSCT;
+	}
 	/**
 	 * This method is overriden method to check whether two minivan type automobiles are equal or not.
 	 * @param _aMinivan

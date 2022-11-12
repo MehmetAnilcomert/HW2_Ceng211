@@ -3,6 +3,7 @@ package Business;
 public class PickupTruck extends Vehicle {
 	private String cabType;
 	private String truckBedType;
+	private double sct;
 	
 	//No argument constructor
 	public PickupTruck() {
@@ -36,15 +37,32 @@ public class PickupTruck extends Vehicle {
 	 * 
 	 */
 	public void calculateSCT() {
-		if(getNumberOfSeats() == 4)
-			sct = (0.6*getProductionYear())/(getEngineVolume()+0.1);
-		else if(getNumberOfSeats() == 5)
-			sct = (0.6*getProductionYear())/(getEngineVolume()+0.4);
-		else if(getNumberOfSeats() == 6)
-			sct = (0.6*getProductionYear())/(getEngineVolume()+0.6);
+		sct = calculateTruckBedType()*calculateProductionYearSCT(getProductionYear()) / calculateCabType();
+	}
+	
+	//Helper method to calculateSCT()
+	private double calculateTruckBedType() {
+		double truckBedType = 0;
+		if(getTruckBedType()=="regular")
+			truckBedType = 0.5;
+		else if(getTruckBedType()=="tanker")
+			truckBedType = 0.8;
 		else {
-			sct = (0.6*getProductionYear())/(getEngineVolume()+0.8);
+			truckBedType = 1.0;
 		}
+		return truckBedType;
+	}
+	//Helper method to calculateSCT()
+	private double calculateCabType() {
+		double cabType = 0;
+		if(getCabType()=="regular")
+			cabType = 2.5;
+		else if(getCabType()=="extended")
+			cabType = 2.8;
+		else {
+			cabType = 3.0;
+		}
+		return cabType;
 	}
 	/**
 	 * This method is overriden method to check whether two pickups are equal or not.

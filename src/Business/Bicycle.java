@@ -3,6 +3,7 @@ package Business;
 public class Bicycle extends Vehicle{
 	private String chainType;
 	private String seatPost;
+	private double sct;
 	
 	
 	// No-argument constructor
@@ -32,6 +33,31 @@ public class Bicycle extends Vehicle{
 	public void setSeatPost(String seatPost) { this.seatPost = seatPost;}
 	public void setChainType(String chainType) { this.chainType = chainType;}
 	
+	public void calculateSCT() {
+		sct = (calculateChainTypeSCT()*calculateSeatPostSCT()*0.1)+calculateMonthOfSaleSCT(getMonthOfSale());
+	}
+	/*
+	 * This private method is a helper method to calculate sct value due to chain type.
+	 */
+	private double calculateChainTypeSCT() {
+		double chainTypeSCT = 0;
+		if(getChainType() == "derailleur")	chainTypeSCT = 1.1;
+		else if(getChainType() == "onechain") chainTypeSCT = 1.2;
+		else { chainTypeSCT = 1.3;}
+		return chainTypeSCT;
+	}
+	/*
+	 * This private method is a helper method to calculate sct value due to chain type.
+	 */
+	private double calculateSeatPostSCT() {
+		double seatPostSCT = 0;
+		if(getSeatPost() == "carbonfiber") seatPostSCT = 0.8;
+		else if(getSeatPost() == "steel") seatPostSCT = 0.7;
+		else if(getSeatPost() == "aluminum") seatPostSCT = 0.9;
+		else{ seatPostSCT = 0.6;}
+		return seatPostSCT;
+		
+	}
 	/**
 	 * This method is overriden method to check whether two bicycles are equal or not.
 	 * @param _aBicycle

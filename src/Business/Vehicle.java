@@ -51,6 +51,30 @@ public class Vehicle {
 		
 	}
 	
+	/*
+	 * This method calculates and returns sct value due to production year of vehicles.
+	 * So it can be used to calculate sct values of vehicles
+	 */
+	public double calculateProductionYearSCT(int _productionYear) {
+		double productionYearSCT =0;
+		if(2001<= _productionYear&& _productionYear<=2008) { productionYearSCT = 1;}
+		else if(2012<= _productionYear&& _productionYear<=2017) { productionYearSCT = 1.2;}
+		else { productionYearSCT = 1.6;}
+		return productionYearSCT;
+	}
+	/*
+	 * This method calculates and returns sct value due to month of sale of vehicles.
+	 * So it can be used to calculate sct values of vehicles
+	 */
+	public double calculateMonthOfSaleSCT(String _monthOfSale) {
+		double monthOfSaleSCT =0;
+		if(_monthOfSale == "January") { monthOfSaleSCT = 0.3;}
+		else if(_monthOfSale == "May") { monthOfSaleSCT = 0.4;}
+		else if(_monthOfSale == "August") { monthOfSaleSCT = 0.5;}
+		else if(_monthOfSale == "October") { monthOfSaleSCT = 0.6;}
+		else { monthOfSaleSCT = 0.7;}
+		return monthOfSaleSCT;
+	}
 	
 	/**
 	 * This method is overriden method to check whether two vehicles are equal or not.
