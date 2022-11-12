@@ -125,8 +125,8 @@ public class SalesRecord {
 		System.out.print("Please enter your choice: ");
 		int choosen = scan.nextInt();
 		switch (choosen) {
-			case '1': {
-				soldVehicles.toString();
+			case 1: {
+				System.out.println(soldVehicles.toString());
 				break;
 			}
 			case 2: {
@@ -135,24 +135,24 @@ public class SalesRecord {
 				}
 				break;
 			}
-			case '3': {
+			case 3: {
 				for (Hatchback aHatchback: soldHatchback) {
 					System.out.println(aHatchback.toString()); 		
 				}
 				break;
 			}
-			case '4': {
+			case 4: {
 				for (Minivan aMinivan: soldMinivan) {
 					System.out.println(aMinivan.toString()); 		
 				}
 				break;
 			}
-			case '5': {
+			case 5: {
 				for (PickupTruck aPickupTruck: soldPickupTruck) {
 					System.out.println(aPickupTruck.toString()); 		
 				}
 				break;
-			}case '6': {
+			}case 6: {
 				for (Bicycle aBicycle: soldBicycle) {
 					System.out.println(aBicycle.toString()); 		
 				}
