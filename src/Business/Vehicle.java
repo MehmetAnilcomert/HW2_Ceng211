@@ -67,9 +67,12 @@ public class Vehicle {
 		return ("Vehicle Id: "+ vehicleId+"\nMonth of sale: "+ monthOfSale+"\nCity of Sale: "+ cityOfSale+ "\nProduction year: "+ productionYear+"\nValue added tax: "+ vat);
 	}
 	
+	
+	//to test 
 	public static void main(String[] args) {
 		Vehicle an = new Vehicle("B154","January","İzmir",2020,8);
-		System.out.println(an.toString());
+		Vehicle an2 = new Vehicle("B154","January","İzmir",2021,8);
+		System.out.println(an.equals(an2));
 	}
 	
 }

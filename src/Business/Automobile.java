@@ -1,11 +1,13 @@
 package Business;
 
+import java.security.NoSuchProviderException;
+
 public class Automobile extends Vehicle{
 	private float engineVolume;
 	
 	// No-argument constructor
 	public Automobile(){
-		super();
+		
 	}
 	// Full-argument constructor.
 	public Automobile(String _vehicleId,String _monthOfSale,String _cityOfSale,int _productionYear,int _vat,float _engineVolume){
@@ -26,6 +28,25 @@ public class Automobile extends Vehicle{
 	public float getEngineVolume() { return engineVolume;}
 	public void setEngineVolume(float engineVolume) { this.engineVolume = engineVolume;}
 	
-
+	/**
+	 * This method is overriden method to check whether two automobiles are equal or not.
+	 * @param _anAutomobile
+	 * @return boolean
+	 */
+	public boolean equals(Automobile _anAutomobile) {
+		if(_anAutomobile == null) {
+			System.out.println("There is no such an Automobile.");
+			return false;
+		}else {
+			return(super.equals(_anAutomobile) && this.engineVolume == _anAutomobile.getEngineVolume());
+		}
+	}
+	/*	Automobile toString method has additional engine volume attribute.
+	 * 
+	 */
+	public String toString() {
+		return("Vehicle Id: "+  getVehicleId()+"\nMonth of sale: "+ getMonthOfSale()+"\nCity of Sale: "+ getCityOfSale() 
+				+"\nProduction year: "+ getProductionYear()+"\nEngine volume: "+ getEngineVolume()+"\nValue added tax: "+ getVat());
+	}
 
 }
