@@ -32,6 +32,20 @@ public class PickupTruck extends Vehicle {
 	public void setCabType(String cabType) { this.cabType = cabType;}
 	public void setTruckBedType(String truckBedType) { this.truckBedType = truckBedType;}
 	
+	/* This method calculates the special consumer tax of pickup truck
+	 * 
+	 */
+	public void calculateSCT() {
+		if(getNumberOfSeats() == 4)
+			sct = (0.6*getProductionYear())/(getEngineVolume()+0.1);
+		else if(getNumberOfSeats() == 5)
+			sct = (0.6*getProductionYear())/(getEngineVolume()+0.4);
+		else if(getNumberOfSeats() == 6)
+			sct = (0.6*getProductionYear())/(getEngineVolume()+0.6);
+		else {
+			sct = (0.6*getProductionYear())/(getEngineVolume()+0.8);
+		}
+	}
 	/**
 	 * This method is overriden method to check whether two pickups are equal or not.
 	 * @param _apickUpTruck

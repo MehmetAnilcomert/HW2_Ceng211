@@ -2,7 +2,7 @@ package Business;
 
 public class Sedan extends Automobile{
 	private String roofType;
-	
+	private double sct;
 	// No-argument constructor
 	public Sedan() {
 		
@@ -26,6 +26,38 @@ public class Sedan extends Automobile{
 	public String getRoofType() { return roofType;}
 	public void setRoofType(String _roofType) { this.roofType = _roofType;}
 	
+	/* This method calculates the special consumer tax of sedan
+	 * 
+	 */
+	public void calculateSCT() {
+		if(getRoofType() == "regular") {
+			if(2001<=getProductionYear()&& getProductionYear()<=2008)
+				sct = (getEngineVolume()*0.2*0.5)/1.0;
+			else if(2012<=getProductionYear()&& getProductionYear()<=2017)
+				sct = (getEngineVolume()*0.2*0.5)/1.2;
+			else {
+				sct = (getEngineVolume()*0.2*0.5)/1.6;
+			}
+		}
+		else if(getRoofType() == "moonroof") {
+			if(2001<=getProductionYear()&& getProductionYear()<=2008)
+				sct = (getEngineVolume()*0.2*0.6)/1.0;
+			else if(2012<=getProductionYear()&& getProductionYear()<=2017)
+				sct = (getEngineVolume()*0.2*0.6)/1.2;
+			else {
+				sct = (getEngineVolume()*0.2*0.6)/1.6;
+			}
+		}
+		else {
+			if(2001<=getProductionYear()&& getProductionYear()<=2008)
+				sct = (getEngineVolume()*0.2*0.8)/1.0;
+			else if(2012<=getProductionYear()&& getProductionYear()<=2017)
+				sct = (getEngineVolume()*0.2*0.8)/1.2;
+			else {
+				sct = (getEngineVolume()*0.2*0.8)/1.6;
+			}
+		}
+	}
 	/**
 	 * This method is overriden method to check whether two sedan type automobiles are equal or not.
 	 * @param _aSedan

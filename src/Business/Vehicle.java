@@ -46,6 +46,12 @@ public class Vehicle {
 	public void setProductionYear(int productionYear) { this.productionYear = productionYear;}
 	public void setVat(int vat) { this.vat = vat;}
 	
+	
+	public void calculateSCT() {
+		
+	}
+	
+	
 	/**
 	 * This method is overriden method to check whether two vehicles are equal or not.
 	 * @param _aVehicle

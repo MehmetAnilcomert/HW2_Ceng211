@@ -2,7 +2,7 @@ package Business;
 
 public class Hatchback extends Automobile{
 	private String cityMode;
-	
+	private double sct;
 	// No-argument constructor
 	public Hatchback(){
 		
@@ -23,6 +23,29 @@ public class Hatchback extends Automobile{
 	// Getter and a setter
 	public String getCityMode() { return cityMode;}
 	public void setCityMode(String _cityMode) { this.cityMode = _cityMode;}
+	
+	/* This method calculates the special consumer tax of hatchback
+	 * 
+	 */
+	public void calculateSCT() {
+		if(getCityMode() == "yes")
+			if(2001<=getProductionYear()&& getProductionYear()<=2008)
+				sct = (getEngineVolume()*0.3*1.0)+0.15;
+			else if(2012<=getProductionYear()&& getProductionYear()<=2017)
+				sct = (getEngineVolume()*0.3*1.2)+0.15;
+			else {
+				sct = (getEngineVolume()*0.3*1.6)+0.15;
+			}
+		else {
+			if(2001<=getProductionYear()&& getProductionYear()<=2008)
+				sct = (getEngineVolume()*0.3*1.0)+0.1;
+			else if(2012<=getProductionYear()&& getProductionYear()<=2017)
+				sct = (getEngineVolume()*0.3*1.2)+0.1;
+			else {
+				sct = (getEngineVolume()*0.3*1.6)+0.1;
+			}
+		}
+	}
 	
 	/**
 	 * This method is overriden method to check whether two hatchback type automobiles are equal or not.

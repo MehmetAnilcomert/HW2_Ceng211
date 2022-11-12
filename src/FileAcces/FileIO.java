@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class FileIO {
 	
+	
 	public static ArrayList<String> readCsv(String filePath) {
         ArrayList<String> soldArrayList = new ArrayList<>(); // an ArraList to put selling informations in.
         // Try-catch usage for prevent 
@@ -23,5 +24,5 @@ public class FileIO {
         return soldArrayList;
     }
 	
-	
+
 }
