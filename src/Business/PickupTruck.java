@@ -9,7 +9,7 @@ public class PickupTruck extends Vehicle {
 		
 	}
 	// Full argument constructor
-	public PickupTruck(String _vehicleId,String _monthOfSale,String _cityOfSale,int _productionYear,int _vat,String _cabType, String _truckBedType) {
+	public PickupTruck(String _vehicleId,String _monthOfSale,String _cityOfSale,int _productionYear,String _cabType, String _truckBedType,int _vat) {
 		super(_vehicleId,_monthOfSale,_cityOfSale,_productionYear,_vat);
 		this.cabType = _cabType;
 		this.truckBedType = _truckBedType;
@@ -47,4 +47,21 @@ public class PickupTruck extends Vehicle {
 					getTruckBedType() == _aPickup.getTruckBedType());
 		}
 	}
+	
+	/*	Pickup truck toString method has additional cab type and truck bed type attributes.
+	 */
+	public String toString(){
+		return("Vehicle Id: "+ getVehicleId()+"\nMonth of sale: "+ getMonthOfSale()+
+				"\nCity of Sale: "+ getCityOfSale()+ "\nProduction year: "+ getProductionYear()+
+				"\nCab type: "+ getCabType() +"\nTruck bed type: "+getTruckBedType() +"\nValue added tax: "+ getVat());
+	}
+
+	//to test 
+		public static void main(String[] args) {
+			PickupTruck an = new PickupTruck("B154","June","İzmir",2020,"regular","tank",8);
+			PickupTruck an2 = new PickupTruck("B154","January","İzmir",2020,"regula","tanker",8);
+			System.out.println(an.equals(an2));
+			System.out.println(an.toString());
+		}
+
 }

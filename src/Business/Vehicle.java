@@ -64,7 +64,8 @@ public class Vehicle {
 	}
 	
 	public String toString() {
-		return ("Vehicle Id: "+ vehicleId+"\nMonth of sale: "+ monthOfSale+"\nCity of Sale: "+ cityOfSale+ "\nProduction year: "+ productionYear+"\nValue added tax: "+ vat);
+		return ("Vehicle Id: "+ vehicleId+"\nMonth of sale: "+ monthOfSale+"\nCity of Sale: "+ cityOfSale+
+				"\nProduction year: "+ productionYear+"\nValue added tax: "+ vat);
 	}
 	
 	

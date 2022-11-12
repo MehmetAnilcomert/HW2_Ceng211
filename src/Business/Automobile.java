@@ -1,7 +1,5 @@
 package Business;
 
-import java.security.NoSuchProviderException;
-
 public class Automobile extends Vehicle{
 	private float engineVolume;
 	
@@ -10,7 +8,7 @@ public class Automobile extends Vehicle{
 		
 	}
 	// Full-argument constructor.
-	public Automobile(String _vehicleId,String _monthOfSale,String _cityOfSale,int _productionYear,int _vat,float _engineVolume){
+	public Automobile(String _vehicleId,String _monthOfSale,String _cityOfSale,int _productionYear,float _engineVolume,int _vat){
 		super(_vehicleId,_monthOfSale,_cityOfSale,_productionYear,_vat);
 		this.setEngineVolume(_engineVolume);
 	}
