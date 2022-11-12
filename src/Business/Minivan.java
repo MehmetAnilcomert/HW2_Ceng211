@@ -3,6 +3,7 @@ package Business;
 public class Minivan extends Automobile{
 	private int numberOfSeats;
 	private double sct;
+	private double paidPrice;
 	// No-argument constructor
 	public Minivan() {
 		
@@ -23,6 +24,8 @@ public class Minivan extends Automobile{
 	
 	//Getter and a setter
 	public int getNumberOfSeats() {	return numberOfSeats;}
+	public double getSCT() { return sct;}
+	public double getPaidPrice() { return paidPrice;}
 	public void setNumberOfSeats(int _numberOfSeats) { this.numberOfSeats = _numberOfSeats;}
 	
 	/* This method calculates the special consumer tax of minivan
@@ -30,6 +33,12 @@ public class Minivan extends Automobile{
 	 */
 	public void calculateSCT() {
 		sct = (0.6*calculateProductionYearSCT(numberOfSeats))/(getEngineVolume()+calculateNumberOfSeatSCT());
+	}
+	/* This method calculates the total paid amount of minivan
+	 * 
+	 */
+	public void calculatePaidPrice() {
+		paidPrice = getBasePrice()*(1+getSCT()*0.8)+(1+(getVat()/100));
 	}
 	/*
 	 * This method is a helper method to calculate sct value due to number of seats. 

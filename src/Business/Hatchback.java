@@ -3,6 +3,7 @@ package Business;
 public class Hatchback extends Automobile{
 	private String cityMode;
 	private double sct;
+	private double paidPrice;
 	// No-argument constructor
 	public Hatchback(){
 		
@@ -22,6 +23,8 @@ public class Hatchback extends Automobile{
 	}
 	// Getter and a setter
 	public String getCityMode() { return cityMode;}
+	public double getSCT() { return sct;}
+	public double getPaidPrice() { return paidPrice;}
 	public void setCityMode(String _cityMode) { this.cityMode = _cityMode;}
 	
 	/* This method calculates the special consumer tax of hatchback
@@ -29,6 +32,12 @@ public class Hatchback extends Automobile{
 	 */
 	public void calculateSCT() {
 		sct = (getEngineVolume()*0.3*calculateProductionYearSCT(getProductionYear()))+calculateCityModeSCT();
+	}
+	/* This method calculates the total paid amount of hatchback
+	 * 
+	 */
+	public void calculatePaidPrice() {
+		paidPrice = getBasePrice()*(1+getSCT()*0.8)+(1+(getVat()/100));
 	}
 	/*
 	 * This method is a helper method to calculate sct value due to city mode. 

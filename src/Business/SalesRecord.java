@@ -1,15 +1,32 @@
 package Business;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Scanner;
+import FileAcces.FileIO;
 
-// This class has a benefit of creating an ArrayList of different vehicles type. 
 public class SalesRecord {
-	private ArrayList<Bicycle> soldBicycle;
-	private  ArrayList<Hatchback> soldHatchback;
-	private  ArrayList<Minivan> soldMinivan;
-	private  ArrayList<PickupTruck> soldPickupTruck;
-	private  ArrayList<Sedan> soldSedan;
+	ArrayList<String> soldVehicles = new ArrayList<String>();
+	ArrayList<Bicycle> soldBicycle = new ArrayList<Bicycle>();
+	ArrayList<Hatchback> soldHatchback =new ArrayList<Hatchback>();
+	ArrayList<Minivan> soldMinivan = new ArrayList<Minivan>();
+	ArrayList<PickupTruck> soldPickupTruck = new ArrayList<PickupTruck>();
+	ArrayList<Sedan> soldSedan = new ArrayList<Sedan>();
 	
+	public SalesRecord() {
+		ArrayList<String> soldVehicles = new ArrayList<String>();
+		ArrayList<Bicycle> soldBicycle = new ArrayList<Bicycle>();
+		ArrayList<Hatchback> soldHatchback =new ArrayList<Hatchback>();
+		ArrayList<Minivan> soldMinivan = new ArrayList<Minivan>();
+		ArrayList<PickupTruck> soldPickupTruck = new ArrayList<PickupTruck>();
+		ArrayList<Sedan> soldSedan = new ArrayList<Sedan>();
+	}
+	/*
+	 * This method fills vehicle objects to its appropriate array list.
+	 */
+	public void fillSoldVehicles(){
+		soldVehicles = FileIO.readCsv("src/file/HW2_SoldVehicles.csv");
+	}
 	/*
 	 * This method fills sedan objects to its appropriate array list.
 	 */
@@ -17,6 +34,7 @@ public class SalesRecord {
 		Sedan aSedan = new Sedan(_aSedan[0],_aSedan[1],_aSedan[2],Integer.parseInt(_aSedan[3]),
 			_aSedan[4],Float.parseFloat(_aSedan[5]),Integer.parseInt(_aSedan[6]));
 		aSedan.calculateSCT();
+		aSedan.calculatePaidPrice();
 		soldSedan.add(aSedan);
 	}
 	/*
@@ -26,6 +44,7 @@ public class SalesRecord {
 		Hatchback aHatchback = new Hatchback(_aHatchback[0],_aHatchback[1],_aHatchback[2],Integer.parseInt(_aHatchback[3]),
 			_aHatchback[4],Float.parseFloat(_aHatchback[5]),Integer.parseInt(_aHatchback[6]));
 		aHatchback.calculateSCT();
+		aHatchback.calculatePaidPrice();
 		soldHatchback.add(aHatchback);
 	}
 	/*
@@ -35,6 +54,7 @@ public class SalesRecord {
 		Minivan aMinivan = new Minivan(_aMinivan[0],_aMinivan[1],_aMinivan[2],Integer.parseInt(_aMinivan[3]),
 				Integer.parseInt(_aMinivan[4]),Float.parseFloat(_aMinivan[5]),Integer.parseInt(_aMinivan[6]));
 		aMinivan.calculateSCT();
+		aMinivan.calculatePaidPrice();
 		soldMinivan.add(aMinivan);
 	}
 	
@@ -45,6 +65,7 @@ public class SalesRecord {
 		PickupTruck aPickupTruck = new PickupTruck(_aPickupTruck[0],_aPickupTruck[1],_aPickupTruck[2],Integer.parseInt(_aPickupTruck[3]),
 				_aPickupTruck[4],_aPickupTruck[5],Integer.parseInt(_aPickupTruck[6]));
 		aPickupTruck.calculateSCT();
+		aPickupTruck.calculatePaidPrice();
 		soldPickupTruck.add(aPickupTruck);
 	}
 	/*
@@ -54,6 +75,8 @@ public class SalesRecord {
 		Bicycle aBicycle = new Bicycle(_aBicycle[0],_aBicycle[1],_aBicycle[2],Integer.parseInt(_aBicycle[3]),
 			_aBicycle[4],_aBicycle[5],Integer.parseInt(_aBicycle[6]));
 		aBicycle.calculateSCT();
+		aBicycle.calculatePaidPrice();
+				
 		soldBicycle.add(aBicycle);
 	}
 	
@@ -64,10 +87,10 @@ public class SalesRecord {
 	public ArrayList<PickupTruck> getSoldPickupTrucks(){ return soldPickupTruck;}
 	public ArrayList<Bicycle> getSoldBicycles(){ return soldBicycle;}
 	
-	public void matchVehicles(ArrayList<String> _anArrayList){
-		for(int i=0; i<_anArrayList.size();i++) {
-			String[] instanceVariables = _anArrayList.get(i).split(",");
-			switch (_anArrayList.get(i).charAt(0)) {
+	public void matchVehicles(){
+		for(int i=0; i<soldVehicles.size();i++) {
+			String[] instanceVariables = soldVehicles.get(i).split(",");
+			switch (soldVehicles.get(i).charAt(0)) {
 				case 'B': {
 					fillSoldBicycles(instanceVariables);
 					break;
@@ -76,15 +99,72 @@ public class SalesRecord {
 					break;
 				}case 'M': {
 					fillSoldMinivan(instanceVariables);
+					break;
 				}case 'P': {
 					fillSoldPickupTruck(instanceVariables);
+					break;
 				}case 'S': {
 					fillSoldSedan(instanceVariables);
+					break;
 				}
 			}
 		}
 	}
 
+	public  void runProgram(){
+		fillSoldVehicles();
+		matchVehicles();
+		query();
+	}
 	
+	public void query() { 
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Please press, "+"\n1 to see all sold vehicles list."+
+		"\n2 to see all sold sedan list."+"\n3 to see all sold hatchback list."+"\n4 to see all sold minivan list."+
+				"\n5 to see all sold pickup truck list."+"\n6 to see all sold bicycle list.");
+		System.out.print("Please enter your choice: ");
+		int choosen = scan.nextInt();
+		switch (choosen) {
+			case '1': {
+				soldVehicles.toString();
+				break;
+			}
+			case 2: {
+				for (Sedan aSedan: soldSedan) {
+					System.out.println(aSedan.toString());		
+				}
+				break;
+			}
+			case '3': {
+				for (Hatchback aHatchback: soldHatchback) {
+					System.out.println(aHatchback.toString()); 		
+				}
+				break;
+			}
+			case '4': {
+				for (Minivan aMinivan: soldMinivan) {
+					System.out.println(aMinivan.toString()); 		
+				}
+				break;
+			}
+			case '5': {
+				for (PickupTruck aPickupTruck: soldPickupTruck) {
+					System.out.println(aPickupTruck.toString()); 		
+				}
+				break;
+			}case '6': {
+				for (Bicycle aBicycle: soldBicycle) {
+					System.out.println(aBicycle.toString()); 		
+				}
+				break;
+			}
+			default:
+				if(choosen>6) {
+					System.out.println("invalid input: "+ choosen);
+					System.exit(0);
+				}
+		}
+		
+	}
 
 }

@@ -50,7 +50,9 @@ public class Vehicle {
 	public void calculateSCT() {
 		
 	}
-	
+	public void calculatePaidPrice() {
+		
+	}
 	/*
 	 * This method calculates and returns sct value due to production year of vehicles.
 	 * So it can be used to calculate sct values of vehicles

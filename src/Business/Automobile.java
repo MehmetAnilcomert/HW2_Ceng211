@@ -2,7 +2,7 @@ package Business;
 
 public class Automobile extends Vehicle{
 	private float engineVolume;
-	
+	public final int BASE_PRICE = 200000;
 	// No-argument constructor
 	public Automobile(){
 		
@@ -24,9 +24,14 @@ public class Automobile extends Vehicle{
 	
 	// Getters and setters
 	public float getEngineVolume() { return engineVolume;}
+	public double getBasePrice() { return BASE_PRICE;}
 	public void setEngineVolume(float engineVolume) { this.engineVolume = engineVolume;}
 	
+	
 	public void calculateSCT() {
+		
+	}
+	public void calculatePaidPrice() {
 		
 	}
 	/**

@@ -3,6 +3,7 @@ package Business;
 public class Sedan extends Automobile{
 	private String roofType;
 	private double sct;
+	private double paidPrice;
 	// No-argument constructor
 	public Sedan() {
 		
@@ -24,6 +25,8 @@ public class Sedan extends Automobile{
 	
 	// Getter and a setter
 	public String getRoofType() { return roofType;}
+	public double getSCT() { return sct;}
+	public double getPaidPrice() { return paidPrice;}
 	public void setRoofType(String _roofType) { this.roofType = _roofType;}
 	
 	/* This method calculates the special consumer tax of sedan
@@ -31,6 +34,12 @@ public class Sedan extends Automobile{
 	 */
 	public void calculateSCT() {
 		sct = (getEngineVolume()*0.2*calculateRoofTypeSCT())/calculateProductionYearSCT(getProductionYear());
+	}
+	/* This method calculates the total paid amount of sedan
+	 * 
+	 */
+	public void calculatePaidPrice() {
+		paidPrice = getBasePrice()*(1+getSCT()*0.8)+(1+(getVat()/100));
 	}
 	/*
 	 * This method is a helper method to calculate sct value due to roof type. 

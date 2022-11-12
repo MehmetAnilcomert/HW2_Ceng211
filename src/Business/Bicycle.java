@@ -4,6 +4,8 @@ public class Bicycle extends Vehicle{
 	private String chainType;
 	private String seatPost;
 	private double sct;
+	private double paidPrice;
+	public final int BASE_PRICE = 10000;
 	
 	
 	// No-argument constructor
@@ -29,12 +31,20 @@ public class Bicycle extends Vehicle{
 	// Getters and Setters
 	public String getSeatPost() { return seatPost;}
 	public String getChainType() { return chainType;}
+	public double getSCT() { return sct;}
+	public double getPaidPrice() { return paidPrice;}
 	
 	public void setSeatPost(String seatPost) { this.seatPost = seatPost;}
 	public void setChainType(String chainType) { this.chainType = chainType;}
 	
 	public void calculateSCT() {
 		sct = (calculateChainTypeSCT()*calculateSeatPostSCT()*0.1)+calculateMonthOfSaleSCT(getMonthOfSale());
+	}
+	/* This method calculates the total paid amount of bicycle.
+	 * 
+	 */
+	public void calculatePaidPrice() {
+		paidPrice = (BASE_PRICE*0.9)*(1+getSCT())+(1+(getVat()/100));
 	}
 	/*
 	 * This private method is a helper method to calculate sct value due to chain type.

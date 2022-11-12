@@ -4,6 +4,8 @@ public class PickupTruck extends Vehicle {
 	private String cabType;
 	private String truckBedType;
 	private double sct;
+	private double paidPrice;
+	public final int BASE_PRICE = 250000;
 	
 	//No argument constructor
 	public PickupTruck() {
@@ -29,6 +31,8 @@ public class PickupTruck extends Vehicle {
 	// Getters and setters
 	public String getCabType() { return cabType;}
 	public String getTruckBedType() { return truckBedType;}
+	public double getSCT() { return sct;}
+	public double getPaidPrice() { return paidPrice;}
 	
 	public void setCabType(String cabType) { this.cabType = cabType;}
 	public void setTruckBedType(String truckBedType) { this.truckBedType = truckBedType;}
@@ -40,6 +44,12 @@ public class PickupTruck extends Vehicle {
 		sct = calculateTruckBedType()*calculateProductionYearSCT(getProductionYear()) / calculateCabType();
 	}
 	
+	/* This method calculates the total paid amount of pickup truck
+	 * 
+	 */
+	public void calculatePaidPrice() {
+		paidPrice = BASE_PRICE*(1+(getSCT()*0.6))+(1+(getVat()/100));
+	}
 	//Helper method to calculateSCT()
 	private double calculateTruckBedType() {
 		double truckBedType = 0;
