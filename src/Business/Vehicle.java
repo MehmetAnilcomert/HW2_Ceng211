@@ -46,7 +46,30 @@ public class Vehicle {
 	public void setProductionYear(int productionYear) { this.productionYear = productionYear;}
 	public void setVat(int vat) { this.vat = vat;}
 	
+	/**
+	 * This method is overriden method to check whether two vehicles are equal or not.
+	 * @param _aVehicle
+	 * @return boolean
+	 */
+	public boolean equals(Vehicle _aVehicle) {
+		if(_aVehicle == null) {
+			System.out.println("There is no such a Vehicle.");
+			return false;
+		}else {
+			return (getVehicleId() == _aVehicle.getVehicleId() && 
+					getMonthOfSale() == _aVehicle.getMonthOfSale()&& 
+					getCityOfSale() == _aVehicle.getCityOfSale()&&
+					getProductionYear() == _aVehicle.getProductionYear());
+		}
+	}
 	
+	public String toString() {
+		return ("Vehicle Id: "+ vehicleId+"\nMonth of sale: "+ monthOfSale+"\nCity of Sale: "+ cityOfSale+ "\nProduction year: "+ productionYear+"\nValue added tax: "+ vat);
+	}
 	
+	public static void main(String[] args) {
+		Vehicle an = new Vehicle("B154","January","İzmir",2020,8);
+		System.out.println(an.toString());
+	}
 	
 }
