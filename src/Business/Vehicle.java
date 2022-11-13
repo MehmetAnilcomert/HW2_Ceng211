@@ -71,10 +71,10 @@ public class Vehicle {
 	 */
 	public double calculateMonthOfSaleSCT(String _monthOfSale) {
 		double monthOfSaleSCT =0;
-		if(_monthOfSale == "January") { monthOfSaleSCT = 0.3;}
-		else if(_monthOfSale == "May") { monthOfSaleSCT = 0.4;}
-		else if(_monthOfSale == "August") { monthOfSaleSCT = 0.5;}
-		else if(_monthOfSale == "October") { monthOfSaleSCT = 0.6;}
+		if(_monthOfSale.equals("January")) { monthOfSaleSCT = 0.3;}
+		else if(_monthOfSale.equals("May")) { monthOfSaleSCT = 0.4;}
+		else if(_monthOfSale.equals("August")) { monthOfSaleSCT = 0.5;}
+		else if(_monthOfSale.equals("October")) { monthOfSaleSCT = 0.6;}
 		else { monthOfSaleSCT = 0.7;}
 		return monthOfSaleSCT;
 	}

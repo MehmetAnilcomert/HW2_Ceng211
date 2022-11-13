@@ -61,9 +61,9 @@ public class Bicycle extends Vehicle{
 	 */
 	private double calculateSeatPostSCT() {
 		double seatPostSCT = 0;
-		if(getSeatPost() == "carbonfiber") seatPostSCT = 0.8;
-		else if(getSeatPost() == "steel") seatPostSCT = 0.7;
-		else if(getSeatPost() == "aluminum") seatPostSCT = 0.9;
+		if(getSeatPost().equals("carbonfiber")) seatPostSCT = 0.8;
+		else if(getSeatPost().equals("steel")) seatPostSCT = 0.7;
+		else if(getSeatPost().equals("aluminum")) seatPostSCT = 0.9;
 		else{ seatPostSCT = 0.6;}
 		return seatPostSCT;
 		
