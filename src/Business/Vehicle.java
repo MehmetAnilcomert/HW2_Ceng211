@@ -44,12 +44,13 @@ public class Vehicle {
      * Copy constructor for preventing privacy-leak
      * @param vehicle object that we will make a new copy of its properties.
      */
-	public Vehicle(Vehicle _aVehicle) {
-		this.vehicleId = _aVehicle.getVehicleId();
-		this.monthOfSale = _aVehicle.getMonthOfSale();
-		this.cityOfSale = _aVehicle.getCityOfSale();
-		this.productionYear = _aVehicle.getProductionYear();
-		this.vat = _aVehicle.getVat();
+	public Vehicle(Vehicle _vehicle) {
+		vehicleId = _vehicle.getVehicleId();
+		monthOfSale = _vehicle.getMonthOfSale();
+		cityOfSale = _vehicle.getCityOfSale();
+		productionYear = _vehicle.getProductionYear();
+		vat = _vehicle.getVat();
+		vehicleType = _vehicle.getVehicleType();
 	}
     
 	
@@ -59,6 +60,7 @@ public class Vehicle {
 	public String getMonthOfSale() { return monthOfSale;}
 	public int getProductionYear() { return productionYear;}
 	public int getVat() { return vat;}
+	public vehicleTypes getVehicleType() { return vehicleType;}
 	
 	public void setVehicleId(String vehicleId) { this.vehicleId = vehicleId;}
 	public void setCityOfSale(String cityOfSale) { this.cityOfSale = cityOfSale;}
