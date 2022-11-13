@@ -31,7 +31,7 @@ public class Hatchback extends Automobile{
 	 * 
 	 */
 	public void calculateSCT() {
-		sct = (getEngineVolume()*0.3*calculateProductionYearSCT(getProductionYear()))+calculateCityModeSCT();
+		sct = (float)(getEngineVolume()*0.3*calculateProductionYearSCT(getProductionYear()))+calculateCityModeSCT();
 	}
 	/* This method calculates the total paid amount of hatchback
 	 * 
@@ -66,7 +66,8 @@ public class Hatchback extends Automobile{
 	 * 
 	 */
 	public String toString() {
-		return("Vehicle Id: "+  getVehicleId()+"\nMonth of sale: "+ getMonthOfSale()+"\nCity of Sale: "+ getCityOfSale() 
-	  +"\nProduction year: "+ getProductionYear()+"\nCity mode: "+getCityMode()+"\nEngine volume: "+ getEngineVolume()+"\nValue added tax: "+ getVat());
+		return("Vehicle Id: "+  getVehicleId()+"\tMonth of sale: "+ getMonthOfSale()+"\tCity of Sale: "+ getCityOfSale() 
+	  +"\tProduction year: "+ getProductionYear()+"\tCity mode: "+getCityMode()+"\tEngine volume: "+ getEngineVolume()+"\tValue added tax: "+ getVat()+
+	  "\tPaid price by buyer: "+getPaidPrice());
 	}
 }

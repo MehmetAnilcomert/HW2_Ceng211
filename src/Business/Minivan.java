@@ -38,7 +38,7 @@ public class Minivan extends Automobile{
 	 * 
 	 */
 	public void calculatePaidPrice() {
-		paidPrice = getBasePrice()*(1+getSCT()*0.8)+(1+(getVat()/100));
+		paidPrice = (float)(getBasePrice()*(1+getSCT()*0.8)+(1+(getVat()/100)));
 	}
 	/*
 	 * This method is a helper method to calculate sct value due to number of seats. 
@@ -69,7 +69,8 @@ public class Minivan extends Automobile{
 	 * 
 	 */
 	public String toString() {
-		return("Vehicle Id: "+  getVehicleId()+"\nMonth of sale: "+ getMonthOfSale()+"\nCity of Sale: "+ getCityOfSale() 
-	  +"\nProduction year: "+ getProductionYear()+"\nNumber of seats: "+getNumberOfSeats()+"\nEngine volume: "+ getEngineVolume()+"\nValue added tax: "+ getVat());
+		return("Vehicle Id: "+  getVehicleId()+"\tMonth of sale: "+ getMonthOfSale()+"\tCity of Sale: "+ getCityOfSale() 
+	  +"\tProduction year: "+ getProductionYear()+"\tNumber of seats: "+getNumberOfSeats()+"\tEngine volume: "+ getEngineVolume()+"\tValue added tax: "+ getVat()+
+	  "\tPaid price by buyer: "+getPaidPrice());
 	}
 }

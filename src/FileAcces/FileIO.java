@@ -10,7 +10,7 @@ public class FileIO {
 	
 	public static ArrayList<String> readCsv(String filePath) {
         ArrayList<String> soldArrayList = new ArrayList<>(); // an ArraList to put selling informations in.
-        // Try-catch usage for prevent 
+        // Try-catch usage for prevent leaks.
         try {
             Scanner scanner = new Scanner(new File(filePath));
             while (scanner.hasNextLine()) {
@@ -23,6 +23,5 @@ public class FileIO {
         }
         return soldArrayList;
     }
-	
 
 }

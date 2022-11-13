@@ -94,18 +94,12 @@ public class Vehicle {
 					getProductionYear() == _aVehicle.getProductionYear());
 		}
 	}
-	
+	/**
+	 * This method is overriden method to convert string format of vehicle's attributes.
+	 * @return String
+	 */
 	public String toString() {
-		return ("Vehicle Id: "+ vehicleId+"\nMonth of sale: "+ monthOfSale+"\nCity of Sale: "+ cityOfSale+
-				"\nProduction year: "+ productionYear+"\nValue added tax: "+ vat);
+		return ("Vehicle Id: "+ vehicleId+"\tMonth of sale: "+ monthOfSale+"\tCity of Sale: "+ cityOfSale+
+				"\tProduction year: "+ productionYear+"\tValue added tax: "+ vat);
 	}
-	
-	
-	//to test 
-	public static void main(String[] args) {
-		Vehicle an = new Vehicle("B154","January","İzmir",2020,8);
-		Vehicle an2 = new Vehicle("B154","January","İzmir",2021,8);
-		System.out.println(an.equals(an2));
-	}
-	
 }

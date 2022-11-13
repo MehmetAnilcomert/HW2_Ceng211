@@ -41,7 +41,7 @@ public class PickupTruck extends Vehicle {
 	 * 
 	 */
 	public void calculateSCT() {
-		sct = calculateTruckBedType()*calculateProductionYearSCT(getProductionYear()) / calculateCabType();
+		sct = (float)(calculateTruckBedType()*calculateProductionYearSCT(getProductionYear()) / calculateCabType());
 	}
 	
 	/* This method calculates the total paid amount of pickup truck
@@ -93,17 +93,9 @@ public class PickupTruck extends Vehicle {
 	/*	Pickup truck toString method has additional cab type and truck bed type attributes.
 	 */
 	public String toString(){
-		return("Vehicle Id: "+ getVehicleId()+"\nMonth of sale: "+ getMonthOfSale()+
-				"\nCity of Sale: "+ getCityOfSale()+ "\nProduction year: "+ getProductionYear()+
-				"\nCab type: "+ getCabType() +"\nTruck bed type: "+getTruckBedType() +"\nValue added tax: "+ getVat());
+		return("Vehicle Id: "+ getVehicleId()+"\tMonth of sale: "+ getMonthOfSale()+
+				"\tCity of Sale: "+ getCityOfSale()+ "\tProduction year: "+ getProductionYear()+
+				"\tCab type: "+ getCabType() +"\tTruck bed type: "+getTruckBedType() +"\tValue added tax: "+ getVat()+
+				"\tPaid price by buyer: "+getPaidPrice());
 	}
-
-	//to test 
-		public static void main(String[] args) {
-			PickupTruck an = new PickupTruck("B154","June","İzmir",2020,"regular","tank",8);
-			PickupTruck an2 = new PickupTruck("B154","January","İzmir",2020,"regula","tanker",8);
-			System.out.println(an.equals(an2));
-			System.out.println(an.toString());
-		}
-
 }

@@ -33,7 +33,7 @@ public class Sedan extends Automobile{
 	 * 
 	 */
 	public void calculateSCT() {
-		sct = (getEngineVolume()*0.2*calculateRoofTypeSCT())/calculateProductionYearSCT(getProductionYear());
+		sct = (float)(getEngineVolume()*0.2*calculateRoofTypeSCT())/calculateProductionYearSCT(getProductionYear());
 	}
 	/* This method calculates the total paid amount of sedan
 	 * 
@@ -69,7 +69,8 @@ public class Sedan extends Automobile{
 	 * 
 	 */
 	public String toString() {
-		return("Vehicle Id: "+  getVehicleId()+"\nMonth of sale: "+ getMonthOfSale()+"\nCity of Sale: "+ getCityOfSale() 
-	  +"\nProduction year: "+ getProductionYear()+"\nRoof type: "+getRoofType()+"\nEngine volume: "+ getEngineVolume()+"\nValue added tax: "+ getVat());
+		return("Vehicle Id: "+  getVehicleId()+"\tMonth of sale: "+ getMonthOfSale()+"\tCity of Sale: "+ getCityOfSale() 
+	  +"\tProduction year: "+ getProductionYear()+"\tRoof type: "+getRoofType()+"\tEngine volume: "+ getEngineVolume()+"\tValue added tax: "+ getVat()+
+	  "\tPaid price by buyer: "+getPaidPrice());
 	}
 }
