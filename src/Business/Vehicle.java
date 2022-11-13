@@ -122,13 +122,14 @@ public class Vehicle {
 	 */
 	public String toString() {
 		String[] fields = new String[6];
-		fields[0] = "Vehicle: "+vehicleType;
+		
+		fields[0] = String.format("Vehicle: %-9s", vehicleType);
 		fields[1] = "Vehicle Id: "+ vehicleId;
-		fields[2] = "Month of sale: "+ monthOfSale;
-		fields[3] = "City of Sale: "+ cityOfSale;
+		fields[2] = String.format("Month of sale: %-8s", monthOfSale);
+		fields[3] = String.format("City of Sale: %-8s", cityOfSale);
 		fields[4] = "Production year: "+ productionYear;
 		fields[5] = "Value added tax: "+ vat;
 		
-		return String.join("\t", fields);
+		return String.join(" | ", fields);
 	}
 }

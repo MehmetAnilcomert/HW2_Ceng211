@@ -123,56 +123,46 @@ public class SalesRecord {
 	
 	public void query() { 
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Please press, "+"\n0 to exit."+"\n1 to see all sold vehicles list."+
+		String infoMessage = "Please press, "+"\n0 to exit."+"\n1 to see all sold vehicles list."+
 		"\n2 to see all sold sedan list."+"\n3 to see all sold hatchback list."+"\n4 to see all sold minivan list."+
-				"\n5 to see all sold pickup truck list."+"\n6 to see all sold bicycle list.");
+				"\n5 to see all sold pickup truck list."+"\n6 to see all sold bicycle list.";
+		
+		System.out.println(infoMessage);
 		System.out.print("Please enter your choice: ");
 		int choosen = scan.nextInt(); // TODO : user can input a letter instead of number, fix later
 		while(choosen!=0) {
 			switch (choosen) {
 				case 1: {
-					System.out.println(soldVehicles);
+					for (Vehicle vehicle :soldVehicles) System.out.println(vehicle);
 					break;
 				}
 				case 2: {
-					for (Sedan aSedan: soldSedan) {
-						System.out.println(aSedan);		
-					}
+					for (Sedan aSedan: soldSedan) System.out.println(aSedan);
 					break;
 				}
 				case 3: {
-					for (Hatchback aHatchback: soldHatchback) {
-						System.out.println(aHatchback); 		
-					}
+					for (Hatchback aHatchback: soldHatchback) System.out.println(aHatchback);
 					break;
 				}
 				case 4: {
-					for (Minivan aMinivan: soldMinivan) {
-						System.out.println(aMinivan); 		
-					}
+					for (Minivan aMinivan: soldMinivan) System.out.println(aMinivan);
 					break;
 				}
 				case 5: {
-					for (PickupTruck aPickupTruck: soldPickupTruck) {
-						System.out.println(aPickupTruck); 		
-					}
+					for (PickupTruck aPickupTruck: soldPickupTruck) System.out.println(aPickupTruck);
 					break;
 				}case 6: {
-					for (Bicycle aBicycle: soldBicycle) {
-						System.out.println(aBicycle); 		
-					}
+					for (Bicycle aBicycle: soldBicycle) System.out.println(aBicycle);
 					break;
 				}
 				default:
 					if(choosen>6) {
 						System.out.println("invalid input: "+ choosen);
-						System.exit(0);
+						System.exit(1);
 					}
 			}
-			System.out.println("Please press, "+"\n0 to exit."+"\n1 to see all sold vehicles list."+
-					"\n2 to see all sold sedan list."+"\n3 to see all sold hatchback list."+"\n4 to see all sold minivan list."+
-							"\n5 to see all sold pickup truck list."+"\n6 to see all sold bicycle list.");
-					System.out.print("Please enter your choice: ");
+			System.out.println(infoMessage);
+			System.out.print("Please enter your choice: ");
 			choosen = scan.nextInt();
 		}	
 		scan.close();
