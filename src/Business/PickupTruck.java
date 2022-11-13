@@ -93,9 +93,9 @@ public class PickupTruck extends Vehicle {
 	/*	Pickup truck toString method has additional cab type and truck bed type attributes. */
 	public String toString(){
 		String str = super.toString();
-		str += "\tCab type: "+ getCabType();
-		str += "\tTruck bed type: "+getTruckBedType();
-		str += "\tPaid price by buyer: " + Math.round(getPaidPrice());
+		str += String.format(" | Cab type: %-8s", getCabType());
+		str += String.format(" | Truck bed type: %-7s", getTruckBedType());
+		str += " | Paid price by buyer: " + Math.round(getPaidPrice());
 		return(str);
 	}
 }

@@ -86,9 +86,9 @@ public class Bicycle extends Vehicle{
 	 */
 	public String toString() {
 		String str = super.toString();
-		str += "\tChain type: "+getChainType();
-		str += "\tSeat post: "+getSeatPost();
-		str += "\tPaid price by buyer: " + Math.round(getPaidPrice());
+		str += String.format(" | Chain type: %-11s", getChainType());
+		str += String.format(" | Seat post: %-11s", getSeatPost());
+		str += " | Paid price by buyer: " + Math.round(getPaidPrice());
 		return(str);
 	}
 }
