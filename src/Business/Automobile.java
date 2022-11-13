@@ -52,7 +52,7 @@ public class Automobile extends Vehicle{
 	 */
 	public String toString() {
 		
-		return(super.toString()+"\tEngine volume: "+ getEngineVolume()+"\tValue added tax: "+ getVat());
+		return(super.toString()+"\tEngine volume: "+ getEngineVolume());
 	}
 
 }

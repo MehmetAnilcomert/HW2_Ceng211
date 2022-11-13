@@ -85,8 +85,10 @@ public class Bicycle extends Vehicle{
 	/*	Bicycle toString method has additional chain type and seat post attributes.
 	 */
 	public String toString() {
-		return ("Vehicle Id: "+ getVehicleId()+"\tMonth of sale: "+ getMonthOfSale()+"\tCity of Sale: "+ getCityOfSale()+ 
-				"\tProduction year: "+ getProductionYear()+"\tChain type: "+getChainType()+"\tSeat post: "+getSeatPost()+"\tValue added tax: "+ getVat()
-				+"\tPaid price by buyer: "+Math.round(getPaidPrice()));
+		String str = super.toString();
+		str += "\tChain type: "+getChainType();
+		str += "\tSeat post: "+getSeatPost();
+		str += "\tPaid price by buyer: " + Math.round(getPaidPrice());
+		return(str);
 	}
 }
