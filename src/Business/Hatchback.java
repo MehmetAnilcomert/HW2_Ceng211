@@ -58,7 +58,7 @@ public class Hatchback extends Automobile{
 			System.out.println("There is no such a Hatchback type automobile.");
 			return false;
 		}else {
-			return(super.equals(_aHatchback) && this.cityMode == _aHatchback.getCityMode());
+			return(super.equals(_aHatchback) && this.cityMode.equals(_aHatchback.getCityMode()));
 		}
 	}
 	

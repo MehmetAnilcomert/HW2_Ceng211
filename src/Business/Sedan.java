@@ -61,7 +61,7 @@ public class Sedan extends Automobile{
 			System.out.println("There is no such a Sedan type automobile.");
 			return false;
 		}else {
-			return(super.equals(_aSedan) && this.roofType == _aSedan.getRoofType());
+			return(super.equals(_aSedan) && this.roofType.equals( _aSedan.getRoofType()));
 		}
 	}
 	

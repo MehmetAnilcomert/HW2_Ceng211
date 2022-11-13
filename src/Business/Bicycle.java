@@ -78,8 +78,8 @@ public class Bicycle extends Vehicle{
 			System.out.println("There is no such a Bicycle.");
 			return false;
 		}else {
-			return (super.equals(_aBicycle) && getChainType() == _aBicycle.getChainType()
-					&& getSeatPost() == _aBicycle.getSeatPost());
+			return (super.equals(_aBicycle) && getChainType().equals(_aBicycle.getChainType())
+					&& getSeatPost().equals(_aBicycle.getSeatPost()));
 		}
 	}
 	/*	Bicycle toString method has additional chain type and seat post attributes.

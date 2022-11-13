@@ -85,8 +85,8 @@ public class PickupTruck extends Vehicle {
 			return false;
 		}else {
 			return (super.equals(_aPickup)&&
-					getCabType() ==_aPickup.getCabType()&&
-					getTruckBedType() == _aPickup.getTruckBedType());
+					getCabType().equals(_aPickup.getCabType())&&
+					getTruckBedType().equals(_aPickup.getTruckBedType()));
 		}
 	}
 	

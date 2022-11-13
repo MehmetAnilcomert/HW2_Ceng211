@@ -89,9 +89,9 @@ public class Vehicle {
 			System.out.println("There is no such a Vehicle.");
 			return false;
 		}else {
-			return (getVehicleId() == _aVehicle.getVehicleId() && 
-					getMonthOfSale() == _aVehicle.getMonthOfSale()&& 
-					getCityOfSale() == _aVehicle.getCityOfSale()&&
+			return (getVehicleId().equals(_aVehicle.getVehicleId())  && 
+					getMonthOfSale().equals(_aVehicle.getMonthOfSale()) && 
+					getCityOfSale().equals(_aVehicle.getCityOfSale()) &&
 					getProductionYear() == _aVehicle.getProductionYear());
 		}
 	}
