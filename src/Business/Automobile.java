@@ -51,8 +51,8 @@ public class Automobile extends Vehicle{
 	 * 
 	 */
 	public String toString() {
-		return("Vehicle Id: "+  getVehicleId()+"\tMonth of sale: "+ getMonthOfSale()+"\tCity of Sale: "+ getCityOfSale() 
-				+"\tProduction year: "+ getProductionYear()+"\tEngine volume: "+ getEngineVolume()+"\tValue added tax: "+ getVat());
+		
+		return(super.toString()+" | Engine volume: "+ getEngineVolume());
 	}
 
 }

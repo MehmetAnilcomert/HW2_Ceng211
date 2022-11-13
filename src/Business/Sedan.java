@@ -52,7 +52,7 @@ public class Sedan extends Automobile{
 		return roofTypeSCT;
 	}
 	/**
-	 * This method is overriden method to check whether two sedan type automobiles are equal or not.
+	 * This method is overridden method to check whether two sedan type automobiles are equal or not.
 	 * @param _aSedan
 	 * @return boolean
 	 */
@@ -65,12 +65,11 @@ public class Sedan extends Automobile{
 		}
 	}
 	
-	/*	Sedan toString method has additional roof type attribute.
-	 * 
-	 */
+	/**	Sedan toString method has additional roof type attribute. */
 	public String toString() {
-		return("Vehicle Id: "+  getVehicleId()+"\tMonth of sale: "+ getMonthOfSale()+"\tCity of Sale: "+ getCityOfSale() 
-	  +"\tProduction year: "+ getProductionYear()+"\tRoof type: "+getRoofType()+"\tEngine volume: "+ getEngineVolume()+"\tValue added tax: "+ getVat()+
-	  "\tPaid price by buyer: "+Math.round(getPaidPrice()));
+		String str = super.toString();
+		str += String.format(" | Roof Type: %-8s", getRoofType());
+		str += " | Paid price by buyer: " + Math.round(getPaidPrice());
+		return(str);
 	}
 }

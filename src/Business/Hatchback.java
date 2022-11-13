@@ -62,12 +62,11 @@ public class Hatchback extends Automobile{
 		}
 	}
 	
-	/*	Hatchback toString method has additional city mode attribute.
-	 * 
-	 */
+	/**	Hatchback toString method has additional city mode attribute. */
 	public String toString() {
-		return("Vehicle Id: "+  getVehicleId()+"\tMonth of sale: "+ getMonthOfSale()+"\tCity of Sale: "+ getCityOfSale() 
-	  +"\tProduction year: "+ getProductionYear()+"\tCity mode: "+getCityMode()+"\tEngine volume: "+ getEngineVolume()+"\tValue added tax: "+ getVat()+
-	  "\tPaid price by buyer: "+Math.round(getPaidPrice()));
+		String str = super.toString();
+		str += String.format(" | City mode: %-3s", getCityMode());
+		str += " | Paid price by buyer: " + Math.round(getPaidPrice());
+		return(str);
 	}
 }
