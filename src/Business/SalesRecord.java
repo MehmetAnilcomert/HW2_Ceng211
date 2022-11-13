@@ -6,7 +6,8 @@ import java.util.Scanner;
 import FileAcces.FileIO;
 
 public class SalesRecord {
-	ArrayList<String> soldVehicles = new ArrayList<String>();
+	ArrayList<String> soldVehiclesString = new ArrayList<String>();
+	ArrayList<Vehicle> soldVehicles = new ArrayList<Vehicle>();
 	ArrayList<Bicycle> soldBicycle = new ArrayList<Bicycle>();
 	ArrayList<Hatchback> soldHatchback =new ArrayList<Hatchback>();
 	ArrayList<Minivan> soldMinivan = new ArrayList<Minivan>();
@@ -14,18 +15,21 @@ public class SalesRecord {
 	ArrayList<Sedan> soldSedan = new ArrayList<Sedan>();
 	
 	public SalesRecord() {
-		ArrayList<String> soldVehicles = new ArrayList<String>();
-		ArrayList<Bicycle> soldBicycle = new ArrayList<Bicycle>();
-		ArrayList<Hatchback> soldHatchback =new ArrayList<Hatchback>();
-		ArrayList<Minivan> soldMinivan = new ArrayList<Minivan>();
-		ArrayList<PickupTruck> soldPickupTruck = new ArrayList<PickupTruck>();
-		ArrayList<Sedan> soldSedan = new ArrayList<Sedan>();
+		
+	}
+	public void fillWithStrings() {
+		soldVehiclesString = FileIO.readCsv("src/file/HW2_SoldVehicles.csv");
 	}
 	/*
 	 * This method fills vehicle objects to its appropriate array list.
 	 */
 	public void fillSoldVehicles(){
-		soldVehicles = FileIO.readCsv("src/file/HW2_SoldVehicles.csv");
+		String[] vehicleString = new String[7];
+		for(int i = 0; i<soldVehiclesString.size();i++) {
+			vehicleString = soldVehiclesString.get(i).split(",");
+			Vehicle aVehicle = new Vehicle(vehicleString[0],vehicleString[1],vehicleString[2],Integer.parseInt(vehicleString[3]),Integer.parseInt(vehicleString[6]));
+			soldVehicles.add(aVehicle);
+		}
 	}
 	/*
 	 * This method fills sedan objects to its appropriate array list.
@@ -88,9 +92,9 @@ public class SalesRecord {
 	public ArrayList<Bicycle> getSoldBicycles(){ return soldBicycle;}
 	
 	public void matchVehicles(){
-		for(int i=0; i<soldVehicles.size();i++) {
-			String[] instanceVariables = soldVehicles.get(i).split(",");
-			switch (soldVehicles.get(i).charAt(0)) {
+		for(int i=0; i<soldVehiclesString.size();i++) {
+			String[] instanceVariables = soldVehiclesString.get(i).split(",");
+			switch (soldVehiclesString.get(i).charAt(0)) {
 				case 'B': {
 					fillSoldBicycles(instanceVariables);
 					break;
@@ -112,6 +116,7 @@ public class SalesRecord {
 	}
 
 	public  void runProgram(){
+		fillWithStrings();
 		fillSoldVehicles();
 		matchVehicles();
 		query();
@@ -119,52 +124,58 @@ public class SalesRecord {
 	
 	public void query() { 
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Please press, "+"\n1 to see all sold vehicles list."+
+		System.out.println("Please press, "+"\n0 to exit."+"\n1 to see all sold vehicles list."+
 		"\n2 to see all sold sedan list."+"\n3 to see all sold hatchback list."+"\n4 to see all sold minivan list."+
 				"\n5 to see all sold pickup truck list."+"\n6 to see all sold bicycle list.");
 		System.out.print("Please enter your choice: ");
 		int choosen = scan.nextInt();
-		switch (choosen) {
-			case 1: {
-				System.out.println(soldVehicles.toString());
-				break;
+		while(choosen!=0) {
+			switch (choosen) {
+				case 1: {
+					System.out.println(soldVehicles);
+					break;
+				}
+				case 2: {
+					for (Sedan aSedan: soldSedan) {
+						System.out.println(aSedan);		
+					}
+					break;
+				}
+				case 3: {
+					for (Hatchback aHatchback: soldHatchback) {
+						System.out.println(aHatchback); 		
+					}
+					break;
+				}
+				case 4: {
+					for (Minivan aMinivan: soldMinivan) {
+						System.out.println(aMinivan); 		
+					}
+					break;
+				}
+				case 5: {
+					for (PickupTruck aPickupTruck: soldPickupTruck) {
+						System.out.println(aPickupTruck); 		
+					}
+					break;
+				}case 6: {
+					for (Bicycle aBicycle: soldBicycle) {
+						System.out.println(aBicycle); 		
+					}
+					break;
+				}
+				default:
+					if(choosen>6) {
+						System.out.println("invalid input: "+ choosen);
+						System.exit(0);
+					}
 			}
-			case 2: {
-				for (Sedan aSedan: soldSedan) {
-					System.out.println(aSedan.toString());		
-				}
-				break;
-			}
-			case 3: {
-				for (Hatchback aHatchback: soldHatchback) {
-					System.out.println(aHatchback.toString()); 		
-				}
-				break;
-			}
-			case 4: {
-				for (Minivan aMinivan: soldMinivan) {
-					System.out.println(aMinivan.toString()); 		
-				}
-				break;
-			}
-			case 5: {
-				for (PickupTruck aPickupTruck: soldPickupTruck) {
-					System.out.println(aPickupTruck.toString()); 		
-				}
-				break;
-			}case 6: {
-				for (Bicycle aBicycle: soldBicycle) {
-					System.out.println(aBicycle.toString()); 		
-				}
-				break;
-			}
-			default:
-				if(choosen>6) {
-					System.out.println("invalid input: "+ choosen);
-					System.exit(0);
-				}
-		}
-		
-	}
-
+			System.out.println("Please press, "+"\n0 to exit."+"\n1 to see all sold vehicles list."+
+					"\n2 to see all sold sedan list."+"\n3 to see all sold hatchback list."+"\n4 to see all sold minivan list."+
+							"\n5 to see all sold pickup truck list."+"\n6 to see all sold bicycle list.");
+					System.out.print("Please enter your choice: ");
+			choosen = scan.nextInt();
+		}	
+		scan.close();
+	}	
 }
