@@ -38,7 +38,7 @@ public class Bicycle extends Vehicle{
 	public void setChainType(String chainType) { this.chainType = chainType;}
 	
 	public void calculateSCT() {
-		sct = (float)(calculateChainTypeSCT()*calculateSeatPostSCT()*0.1)+calculateMonthOfSaleSCT(getMonthOfSale());
+		sct = (calculateChainTypeSCT()*calculateSeatPostSCT()*0.1)+calculateMonthOfSaleSCT(getMonthOfSale());
 	}
 	/* This method calculates the total paid amount of bicycle.
 	 * 
@@ -51,8 +51,8 @@ public class Bicycle extends Vehicle{
 	 */
 	private double calculateChainTypeSCT() {
 		double chainTypeSCT = 0;
-		if(getChainType() == "derailleur")	chainTypeSCT = 1.1;
-		else if(getChainType() == "onechain") chainTypeSCT = 1.2;
+		if(getChainType().equals("derailleur"))	chainTypeSCT = 1.1;
+		else if(getChainType().equals("onechain")) chainTypeSCT = 1.2;
 		else { chainTypeSCT = 1.3;}
 		return chainTypeSCT;
 	}
@@ -87,6 +87,6 @@ public class Bicycle extends Vehicle{
 	public String toString() {
 		return ("Vehicle Id: "+ getVehicleId()+"\tMonth of sale: "+ getMonthOfSale()+"\tCity of Sale: "+ getCityOfSale()+ 
 				"\tProduction year: "+ getProductionYear()+"\tChain type: "+getChainType()+"\tSeat post: "+getSeatPost()+"\tValue added tax: "+ getVat()
-				+"\tPaid price by buyer: "+getPaidPrice());
+				+"\tPaid price by buyer: "+Math.round(getPaidPrice()));
 	}
 }

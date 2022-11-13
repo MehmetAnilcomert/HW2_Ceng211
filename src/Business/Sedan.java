@@ -33,7 +33,7 @@ public class Sedan extends Automobile{
 	 * 
 	 */
 	public void calculateSCT() {
-		sct = (float)(getEngineVolume()*0.2*calculateRoofTypeSCT())/calculateProductionYearSCT(getProductionYear());
+		sct = (getEngineVolume()*0.2*calculateRoofTypeSCT())/calculateProductionYearSCT(getProductionYear());
 	}
 	/* This method calculates the total paid amount of sedan
 	 * 
@@ -46,8 +46,8 @@ public class Sedan extends Automobile{
 	 */
 	private double calculateRoofTypeSCT(){
 		double roofTypeSCT = 0;
-		if(getRoofType() == "regular") roofTypeSCT = 0.5;
-		else if(getRoofType() == "moonroof") roofTypeSCT = 0.6;
+		if(getRoofType().equals("regular")) roofTypeSCT = 0.5;
+		else if(getRoofType().equals("moonroof")) roofTypeSCT = 0.6;
 		else { roofTypeSCT = 0.8;}
 		return roofTypeSCT;
 	}
@@ -71,6 +71,6 @@ public class Sedan extends Automobile{
 	public String toString() {
 		return("Vehicle Id: "+  getVehicleId()+"\tMonth of sale: "+ getMonthOfSale()+"\tCity of Sale: "+ getCityOfSale() 
 	  +"\tProduction year: "+ getProductionYear()+"\tRoof type: "+getRoofType()+"\tEngine volume: "+ getEngineVolume()+"\tValue added tax: "+ getVat()+
-	  "\tPaid price by buyer: "+getPaidPrice());
+	  "\tPaid price by buyer: "+Math.round(getPaidPrice()));
 	}
 }

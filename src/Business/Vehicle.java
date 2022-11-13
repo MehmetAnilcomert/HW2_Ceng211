@@ -7,6 +7,7 @@ public class Vehicle {
 	private int productionYear;
 	private int vat;
 	
+	
 	// No-argument constructor
 	public Vehicle() {
 	}

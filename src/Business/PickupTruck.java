@@ -41,7 +41,7 @@ public class PickupTruck extends Vehicle {
 	 * 
 	 */
 	public void calculateSCT() {
-		sct = (float)(calculateTruckBedType()*calculateProductionYearSCT(getProductionYear()) / calculateCabType());
+		sct = (calculateTruckBedType()*calculateProductionYearSCT(getProductionYear()) / calculateCabType());
 	}
 	
 	/* This method calculates the total paid amount of pickup truck
@@ -53,9 +53,9 @@ public class PickupTruck extends Vehicle {
 	//Helper method to calculateSCT()
 	private double calculateTruckBedType() {
 		double truckBedType = 0;
-		if(getTruckBedType()=="regular")
+		if(getTruckBedType().equals("regular"))
 			truckBedType = 0.5;
-		else if(getTruckBedType()=="tanker")
+		else if(getTruckBedType().equals("tanker"))
 			truckBedType = 0.8;
 		else {
 			truckBedType = 1.0;
@@ -65,9 +65,9 @@ public class PickupTruck extends Vehicle {
 	//Helper method to calculateSCT()
 	private double calculateCabType() {
 		double cabType = 0;
-		if(getCabType()=="regular")
+		if(getCabType().equals("regular"))
 			cabType = 2.5;
-		else if(getCabType()=="extended")
+		else if(getCabType().equals("extended"))
 			cabType = 2.8;
 		else {
 			cabType = 3.0;
@@ -96,6 +96,6 @@ public class PickupTruck extends Vehicle {
 		return("Vehicle Id: "+ getVehicleId()+"\tMonth of sale: "+ getMonthOfSale()+
 				"\tCity of Sale: "+ getCityOfSale()+ "\tProduction year: "+ getProductionYear()+
 				"\tCab type: "+ getCabType() +"\tTruck bed type: "+getTruckBedType() +"\tValue added tax: "+ getVat()+
-				"\tPaid price by buyer: "+getPaidPrice());
+				"\tPaid price by buyer: "+Math.round(getPaidPrice()));
 	}
 }

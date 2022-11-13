@@ -31,7 +31,7 @@ public class Hatchback extends Automobile{
 	 * 
 	 */
 	public void calculateSCT() {
-		sct = (float)(getEngineVolume()*0.3*calculateProductionYearSCT(getProductionYear()))+calculateCityModeSCT();
+		sct = (getEngineVolume()*0.3*calculateProductionYearSCT(getProductionYear()))+calculateCityModeSCT();
 	}
 	/* This method calculates the total paid amount of hatchback
 	 * 
@@ -44,7 +44,7 @@ public class Hatchback extends Automobile{
 	 */
 	private double calculateCityModeSCT() {
 		double cityModeSCT = 0;
-		if(getCityMode() == "yes") cityModeSCT = 0.15;
+		if(getCityMode().equals("yes")) cityModeSCT = 0.15;
 		else { cityModeSCT = 0.1;}
 		return cityModeSCT;
 	}
@@ -68,6 +68,6 @@ public class Hatchback extends Automobile{
 	public String toString() {
 		return("Vehicle Id: "+  getVehicleId()+"\tMonth of sale: "+ getMonthOfSale()+"\tCity of Sale: "+ getCityOfSale() 
 	  +"\tProduction year: "+ getProductionYear()+"\tCity mode: "+getCityMode()+"\tEngine volume: "+ getEngineVolume()+"\tValue added tax: "+ getVat()+
-	  "\tPaid price by buyer: "+getPaidPrice());
+	  "\tPaid price by buyer: "+Math.round(getPaidPrice()));
 	}
 }
