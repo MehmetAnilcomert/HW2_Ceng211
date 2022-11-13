@@ -127,7 +127,7 @@ public class SalesRecord {
 		"\n2 to see all sold sedan list."+"\n3 to see all sold hatchback list."+"\n4 to see all sold minivan list."+
 				"\n5 to see all sold pickup truck list."+"\n6 to see all sold bicycle list.");
 		System.out.print("Please enter your choice: ");
-		int choosen = scan.nextInt();
+		int choosen = scan.nextInt(); // TODO : user can input a letter instead of number, fix later
 		while(choosen!=0) {
 			switch (choosen) {
 				case 1: {
