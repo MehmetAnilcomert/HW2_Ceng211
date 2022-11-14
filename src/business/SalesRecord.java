@@ -6,16 +6,22 @@ import java.util.Scanner;
 import fileAccess.FileIO;
 
 public class SalesRecord {
-	ArrayList<String> soldVehiclesString = new ArrayList<String>();
-	ArrayList<Vehicle> soldVehicles = new ArrayList<Vehicle>();
-	ArrayList<Bicycle> soldBicycle = new ArrayList<Bicycle>();
-	ArrayList<Hatchback> soldHatchback =new ArrayList<Hatchback>();
-	ArrayList<Minivan> soldMinivan = new ArrayList<Minivan>();
-	ArrayList<PickupTruck> soldPickupTruck = new ArrayList<PickupTruck>();
-	ArrayList<Sedan> soldSedan = new ArrayList<Sedan>();
+	private ArrayList<String> soldVehiclesString;
+	private ArrayList<Vehicle> soldVehicles;
+	private ArrayList<Bicycle> soldBicycle;
+	private ArrayList<Hatchback> soldHatchback;
+	private ArrayList<Minivan> soldMinivan;
+	private ArrayList<PickupTruck> soldPickupTruck;
+	private ArrayList<Sedan> soldSedan;
 	
 	public SalesRecord() {
-		
+		soldVehiclesString = new ArrayList<String>();
+		soldVehicles = new ArrayList<Vehicle>();
+		soldBicycle = new ArrayList<Bicycle>();
+		soldHatchback =new ArrayList<Hatchback>();
+		soldMinivan = new ArrayList<Minivan>();
+		soldPickupTruck = new ArrayList<PickupTruck>();
+		soldSedan = new ArrayList<Sedan>();
 	}
 	
 	public void fillWithStrings() {
@@ -33,6 +39,7 @@ public class SalesRecord {
 		soldVehicles.add(aSedan);
 		soldSedan.add(aSedan);
 	}
+	
 	/*
 	 * This method fills hatchback objects to its appropriate array list.
 	 */
@@ -44,6 +51,7 @@ public class SalesRecord {
 		soldVehicles.add(aHatchback);
 		soldHatchback.add(aHatchback);
 	}
+	
 	/*
 	 * This method fills minivan objects to its appropriate array list.
 	 */
@@ -67,6 +75,7 @@ public class SalesRecord {
 		soldVehicles.add(aPickupTruck);
 		soldPickupTruck.add(aPickupTruck);
 	}
+	
 	/*
 	 * This method fills bicycle objects to its appropriate array list.
 	 */
