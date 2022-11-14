@@ -1,8 +1,9 @@
-package Business;
+package business;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import FileAcces.FileIO;
+
+import fileAccess.FileIO;
 
 public class SalesRecord {
 	ArrayList<String> soldVehiclesString = new ArrayList<String>();
@@ -17,7 +18,7 @@ public class SalesRecord {
 		
 	}
 	public void fillWithStrings() {
-		soldVehiclesString = FileIO.readCsv("src/file/HW2_SoldVehicles.csv");
+		soldVehiclesString = FileIO.readCsv("src/resources/HW2_SoldVehicles.csv");
 	}
 	/*
 	 * This method fills vehicle objects to its appropriate array list.

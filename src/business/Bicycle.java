@@ -1,4 +1,4 @@
-package Business;
+package business;
 
 public class Bicycle extends Vehicle{
 	private String chainType;

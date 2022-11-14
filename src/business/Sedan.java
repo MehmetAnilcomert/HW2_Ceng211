@@ -1,4 +1,4 @@
-package Business;
+package business;
 
 public class Sedan extends Automobile{
 	private String roofType;

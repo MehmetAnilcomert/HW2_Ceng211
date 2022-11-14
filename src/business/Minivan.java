@@ -1,4 +1,4 @@
-package Business;
+package business;
 
 public class Minivan extends Automobile{
 	private int numberOfSeats;

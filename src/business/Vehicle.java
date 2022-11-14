@@ -1,4 +1,4 @@
-package Business;
+package business;
 
 enum vehicleTypes {Sedan,Hatchback,Minivan,Pickup,Bicycle};
 

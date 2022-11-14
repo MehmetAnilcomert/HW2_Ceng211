@@ -1,4 +1,4 @@
-package Business;
+package business;
 
 public class PickupTruck extends Vehicle {
 	private String cabType;

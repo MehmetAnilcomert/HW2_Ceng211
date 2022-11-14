@@ -1,4 +1,4 @@
-package Business;
+package business;
 
 public class Automobile extends Vehicle{
 	private float engineVolume;

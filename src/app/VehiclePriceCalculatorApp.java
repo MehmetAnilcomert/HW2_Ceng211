@@ -1,6 +1,6 @@
-package App;
+package app;
 
-import Business.SalesRecord;
+import business.SalesRecord;
 
 public class VehiclePriceCalculatorApp {
 	public static void main(String[] args) {
