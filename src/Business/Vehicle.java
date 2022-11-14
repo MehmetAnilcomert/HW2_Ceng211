@@ -68,10 +68,14 @@ public class Vehicle {
 	public void setProductionYear(int productionYear) { this.productionYear = productionYear;}
 	public void setVat(int vat) { this.vat = vat;}
 	
-	
+	/*
+	 * This method is overriden and written accurately in each subclasses.
+	 */
 	public void calculateSCT() {
-		
 	}
+	/*
+	 * This method is overriden and written accurately in each subclasses.
+	 */
 	public void calculatePaidPrice() {
 		
 	}
@@ -122,14 +126,12 @@ public class Vehicle {
 	 */
 	public String toString() {
 		String[] fields = new String[6];
-		
 		fields[0] = String.format("Vehicle: %-9s", vehicleType);
 		fields[1] = "Vehicle Id: "+ vehicleId;
 		fields[2] = String.format("Month of sale: %-8s", monthOfSale);
 		fields[3] = String.format("City of Sale: %-8s", cityOfSale);
 		fields[4] = "Production year: "+ productionYear;
 		fields[5] = "Value added tax: "+ vat;
-		
 		return String.join(" | ", fields);
 	}
 }

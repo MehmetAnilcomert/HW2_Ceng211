@@ -22,14 +22,14 @@ public class SalesRecord {
 	/*
 	 * This method fills vehicle objects to its appropriate array list.
 	 */
-	public void fillSoldVehicles(){
+	/*public void fillSoldVehicles(){
 		String[] vehicleString = new String[7];
-		for(int i = 0; i<soldVehiclesString.size();i++) {
-			vehicleString = soldVehiclesString.get(i).split(",");
+		for(String lines : soldVehiclesString) {
+			vehicleString = lines.split(",");
 			Vehicle aVehicle = new Vehicle(vehicleString[0],vehicleString[1],vehicleString[2],Integer.parseInt(vehicleString[3]),Integer.parseInt(vehicleString[6]));
 			soldVehicles.add(aVehicle);
 		}
-	}
+	}*/
 	/*
 	 * This method fills sedan objects to its appropriate array list.
 	 */
@@ -38,6 +38,7 @@ public class SalesRecord {
 			_aSedan[4],Float.parseFloat(_aSedan[5]),Integer.parseInt(_aSedan[6]));
 		aSedan.calculateSCT();
 		aSedan.calculatePaidPrice();
+		soldVehicles.add(aSedan);
 		soldSedan.add(aSedan);
 	}
 	/*
@@ -48,6 +49,7 @@ public class SalesRecord {
 			_aHatchback[4],Float.parseFloat(_aHatchback[5]),Integer.parseInt(_aHatchback[6]));
 		aHatchback.calculateSCT();
 		aHatchback.calculatePaidPrice();
+		soldVehicles.add(aHatchback);
 		soldHatchback.add(aHatchback);
 	}
 	/*
@@ -58,6 +60,7 @@ public class SalesRecord {
 				Integer.parseInt(_aMinivan[4]),Float.parseFloat(_aMinivan[5]),Integer.parseInt(_aMinivan[6]));
 		aMinivan.calculateSCT();
 		aMinivan.calculatePaidPrice();
+		soldVehicles.add(aMinivan);
 		soldMinivan.add(aMinivan);
 	}
 	
@@ -69,6 +72,7 @@ public class SalesRecord {
 				_aPickupTruck[4],_aPickupTruck[5],Integer.parseInt(_aPickupTruck[6]));
 		aPickupTruck.calculateSCT();
 		aPickupTruck.calculatePaidPrice();
+		soldVehicles.add(aPickupTruck);
 		soldPickupTruck.add(aPickupTruck);
 	}
 	/*
@@ -79,7 +83,7 @@ public class SalesRecord {
 			_aBicycle[4],_aBicycle[5],Integer.parseInt(_aBicycle[6]));
 		aBicycle.calculateSCT();
 		aBicycle.calculatePaidPrice();
-				
+		soldVehicles.add(aBicycle);
 		soldBicycle.add(aBicycle);
 	}
 	
@@ -116,7 +120,7 @@ public class SalesRecord {
 
 	public  void runProgram(){
 		fillWithStrings();
-		fillSoldVehicles();
+		//fillSoldVehicles();
 		matchVehicles();
 		query();
 	}
