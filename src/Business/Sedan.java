@@ -68,7 +68,7 @@ public class Sedan extends Automobile{
 	/**	Sedan toString method has additional roof type attribute. */
 	public String toString() {
 		String str = super.toString();
-		str += String.format(" | Roof Type: %-8s", getRoofType());
+		str += String.format(" | Roof Type: %-12s", getRoofType());
 		str += " | Paid price by buyer: " + Math.round(getPaidPrice());
 		return(str);
 	}

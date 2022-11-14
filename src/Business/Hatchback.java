@@ -65,7 +65,7 @@ public class Hatchback extends Automobile{
 	/**	Hatchback toString method has additional city mode attribute. */
 	public String toString() {
 		String str = super.toString();
-		str += String.format(" | City mode: %-3s", getCityMode());
+		str += String.format(" | City mode: %-12s", getCityMode());
 		str += " | Paid price by buyer: " + Math.round(getPaidPrice());
 		return(str);
 	}

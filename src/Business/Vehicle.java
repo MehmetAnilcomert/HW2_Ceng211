@@ -131,7 +131,7 @@ public class Vehicle {
 		fields[2] = String.format("Month of sale: %-8s", monthOfSale);
 		fields[3] = String.format("City of Sale: %-8s", cityOfSale);
 		fields[4] = "Production year: "+ productionYear;
-		fields[5] = "Value added tax: "+ vat;
+		fields[5] = String.format("Value added tax: %-2s", vat);
 		return String.join(" | ", fields);
 	}
 }

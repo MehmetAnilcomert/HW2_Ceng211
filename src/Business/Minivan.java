@@ -68,7 +68,7 @@ public class Minivan extends Automobile{
 	/*	Minivan toString method has additional number of seats attribute. */
 	public String toString() {
 		String str = super.toString();
-		str += " | Number of seats: "+getNumberOfSeats();
+		str += " | Number of seats: "+getNumberOfSeats()+"     ";
 		str += " | Paid price by buyer: " + Math.round(getPaidPrice());
 		return(str);
 	}
