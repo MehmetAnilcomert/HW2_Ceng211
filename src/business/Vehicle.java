@@ -44,13 +44,17 @@ public class Vehicle {
      * Copy constructor for preventing privacy-leak
      * @param vehicle object that we will make a new copy of its properties.
      */
-	public Vehicle(Vehicle _vehicle) {
-		vehicleId = _vehicle.getVehicleId();
-		monthOfSale = _vehicle.getMonthOfSale();
-		cityOfSale = _vehicle.getCityOfSale();
-		productionYear = _vehicle.getProductionYear();
-		vat = _vehicle.getVat();
-		vehicleType = _vehicle.getVehicleType();
+	public Vehicle(Vehicle vehicle) {
+		if (vehicle == null) {
+			System.out.println("ERROR: Empty constructor of Vehicle object");
+			System.exit(1);
+		}
+		vehicleId = vehicle.getVehicleId();
+		monthOfSale = vehicle.getMonthOfSale();
+		cityOfSale = vehicle.getCityOfSale();
+		productionYear = vehicle.getProductionYear();
+		vat = vehicle.getVat();
+		vehicleType = vehicle.getVehicleType();
 	}
     
 	
