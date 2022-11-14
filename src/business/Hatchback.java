@@ -66,7 +66,8 @@ public class Hatchback extends Automobile{
 	public String toString() {
 		String str = super.toString();
 		str += String.format(" | City mode: %-12s", getCityMode());
-		str += " | Paid price by buyer: " + Math.round(getPaidPrice());
+		str += String.format(" | SCT: %.2f", sct);
+		str += String.format(" | Paid price by buyer: %.2f ",getPaidPrice());
 		return(str);
 	}
 }

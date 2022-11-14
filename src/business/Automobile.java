@@ -27,13 +27,6 @@ public class Automobile extends Vehicle{
 	public double getBasePrice() { return BASE_PRICE;}
 	public void setEngineVolume(float engineVolume) { this.engineVolume = engineVolume;}
 	
-	
-	public void calculateSCT() {
-		
-	}
-	public void calculatePaidPrice() {
-		
-	}
 	/**
 	 * This method is overriden method to check whether two automobiles are equal or not.
 	 * @param _anAutomobile

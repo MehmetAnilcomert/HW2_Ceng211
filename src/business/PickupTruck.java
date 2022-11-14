@@ -95,7 +95,8 @@ public class PickupTruck extends Vehicle {
 		String str = super.toString();
 		str += String.format(" | Cab type: %-13s", getCabType());
 		str += String.format(" | Truck bed type: %-7s", getTruckBedType());
-		str += " | Paid price by buyer: " + Math.round(getPaidPrice());
+		str += String.format(" | SCT: %.2f", sct);
+		str += String.format(" | Paid price by buyer: %.2f ",getPaidPrice());
 		return(str);
 	}
 }

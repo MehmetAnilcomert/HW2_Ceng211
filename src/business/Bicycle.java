@@ -68,6 +68,7 @@ public class Bicycle extends Vehicle{
 		return seatPostSCT;
 		
 	}
+	
 	/**
 	 * This method is overriden method to check whether two bicycles are equal or not.
 	 * @param _aBicycle
@@ -82,13 +83,14 @@ public class Bicycle extends Vehicle{
 					&& getSeatPost().equals(_aBicycle.getSeatPost()));
 		}
 	}
-	/*	Bicycle toString method has additional chain type and seat post attributes.
-	 */
+	
+	/*	Bicycle toString method has additional chain type and seat post attributes. */
 	public String toString() {
 		String str = super.toString();
 		str += String.format(" | Chain type: %-11s", getChainType());
 		str += String.format(" | Seat post: %-12s", getSeatPost());
-		str += " | Paid price by buyer: " + Math.round(getPaidPrice());
+		str += String.format(" | SCT: %.2f", sct);
+		str += String.format(" | Paid price by buyer: %.2f ",getPaidPrice());
 		return(str);
 	}
 }

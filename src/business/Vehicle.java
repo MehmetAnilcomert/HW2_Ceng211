@@ -68,17 +68,7 @@ public class Vehicle {
 	public void setProductionYear(int productionYear) { this.productionYear = productionYear;}
 	public void setVat(int vat) { this.vat = vat;}
 	
-	/*
-	 * This method is overriden and written accurately in each subclasses.
-	 */
-	public void calculateSCT() {
-	}
-	/*
-	 * This method is overriden and written accurately in each subclasses.
-	 */
-	public void calculatePaidPrice() {
-		
-	}
+	
 	/*
 	 * This method calculates and returns SCT value due to production year of vehicles.
 	 * So it can be used to calculate SCT values of vehicles

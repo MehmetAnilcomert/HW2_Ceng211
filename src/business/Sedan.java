@@ -69,7 +69,8 @@ public class Sedan extends Automobile{
 	public String toString() {
 		String str = super.toString();
 		str += String.format(" | Roof Type: %-12s", getRoofType());
-		str += " | Paid price by buyer: " + Math.round(getPaidPrice());
+		str += String.format(" | SCT: %.2f", sct);
+		str += String.format(" | Paid price by buyer: %.2f",getPaidPrice());
 		return(str);
 	}
 }

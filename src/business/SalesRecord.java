@@ -17,20 +17,11 @@ public class SalesRecord {
 	public SalesRecord() {
 		
 	}
+	
 	public void fillWithStrings() {
 		soldVehiclesString = FileIO.readCsv("src/resources/HW2_SoldVehicles.csv");
 	}
-	/*
-	 * This method fills vehicle objects to its appropriate array list.
-	 */
-	/*public void fillSoldVehicles(){
-		String[] vehicleString = new String[7];
-		for(String lines : soldVehiclesString) {
-			vehicleString = lines.split(",");
-			Vehicle aVehicle = new Vehicle(vehicleString[0],vehicleString[1],vehicleString[2],Integer.parseInt(vehicleString[3]),Integer.parseInt(vehicleString[6]));
-			soldVehicles.add(aVehicle);
-		}
-	}*/
+	
 	/*
 	 * This method fills sedan objects to its appropriate array list.
 	 */
@@ -96,9 +87,9 @@ public class SalesRecord {
 	public ArrayList<Bicycle> getSoldBicycles(){ return soldBicycle;}
 	
 	public void matchVehicles(){
-		for(int i=0; i<soldVehiclesString.size();i++) {
-			String[] instanceVariables = soldVehiclesString.get(i).split(",");
-			switch (soldVehiclesString.get(i).charAt(0)) {
+		for(String line : soldVehiclesString) {
+			String[] instanceVariables = line.split(","); // parse single line with delimiter
+			switch (line.charAt(0)) {
 				case 'B': {
 					fillSoldBicycles(instanceVariables);
 					break;
@@ -121,7 +112,6 @@ public class SalesRecord {
 
 	public  void runProgram(){
 		fillWithStrings();
-		//fillSoldVehicles();
 		matchVehicles();
 		query();
 	}
@@ -134,41 +124,34 @@ public class SalesRecord {
 		
 		System.out.println(infoMessage);
 		System.out.print("Please enter your choice: ");
-		int choosen = scan.nextInt(); // TODO : user can input a letter instead of number, fix later
-		while(choosen!=0) {
+		String choosen = scan.nextLine();
+		while(choosen.length() != 0) {
 			switch (choosen) {
-				case 1: {
+				case "1": 
 					for (Vehicle vehicle :soldVehicles) System.out.println(vehicle);
 					break;
-				}
-				case 2: {
+				case "2": 
 					for (Sedan aSedan: soldSedan) System.out.println(aSedan);
 					break;
-				}
-				case 3: {
+				case "3": 
 					for (Hatchback aHatchback: soldHatchback) System.out.println(aHatchback);
 					break;
-				}
-				case 4: {
+				case "4": 
 					for (Minivan aMinivan: soldMinivan) System.out.println(aMinivan);
-					break;
-				}
-				case 5: {
+					break;		
+				case "5": 
 					for (PickupTruck aPickupTruck: soldPickupTruck) System.out.println(aPickupTruck);
 					break;
-				}case 6: {
+				case "6": 
 					for (Bicycle aBicycle: soldBicycle) System.out.println(aBicycle);
 					break;
-				}
 				default:
-					if(choosen>6) {
-						System.out.println("invalid input: "+ choosen);
-						System.exit(1);
-					}
+					System.out.println("invalid input: "+ choosen);
+					System.exit(1);
 			}
 			System.out.println(infoMessage);
 			System.out.print("Please enter your choice: ");
-			choosen = scan.nextInt();
+			choosen = scan.nextLine();
 		}	
 		scan.close();
 	}	
