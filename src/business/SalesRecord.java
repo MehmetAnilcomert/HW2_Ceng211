@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 import fileAccess.FileIO;
 
+/**
+ * A class that has static methods to run the app.
+ */
 public class SalesRecord {
 	private ArrayList<String> soldVehiclesString;
 	private ArrayList<Vehicle> soldVehicles;
@@ -28,7 +31,7 @@ public class SalesRecord {
 		soldVehiclesString = FileIO.readCsv("src/resources/HW2_SoldVehicles.csv");
 	}
 	
-	/*
+	/**
 	 * This method fills sedan objects to its appropriate array list.
 	 */
 	public void fillSoldSedan(String[] _aSedan){
@@ -40,7 +43,7 @@ public class SalesRecord {
 		soldSedan.add(aSedan);
 	}
 	
-	/*
+	/**
 	 * This method fills hatchback objects to its appropriate array list.
 	 */
 	public void fillSoldHatchback(String[] _aHatchback){
@@ -52,7 +55,7 @@ public class SalesRecord {
 		soldHatchback.add(aHatchback);
 	}
 	
-	/*
+	/**
 	 * This method fills minivan objects to its appropriate array list.
 	 */
 	public void fillSoldMinivan(String[] _aMinivan){
@@ -64,7 +67,7 @@ public class SalesRecord {
 		soldMinivan.add(aMinivan);
 	}
 	
-	/*
+	/**
 	 * This method fills pickup truck objects to its appropriate array list.
 	 */
 	public void fillSoldPickupTruck(String[] _aPickupTruck){
@@ -76,7 +79,7 @@ public class SalesRecord {
 		soldPickupTruck.add(aPickupTruck);
 	}
 	
-	/*
+	/**
 	 * This method fills bicycle objects to its appropriate array list.
 	 */
 	public void fillSoldBicycles(String[] _aBicycle){
@@ -95,6 +98,7 @@ public class SalesRecord {
 	public ArrayList<PickupTruck> getSoldPickupTrucks(){ return soldPickupTruck;}
 	public ArrayList<Bicycle> getSoldBicycles(){ return soldBicycle;}
 	
+	/** This method looks first character of vehicle ID and loads corresponding vehicle subclass */
 	public void matchVehicles(){
 		for(String line : soldVehiclesString) {
 			String[] instanceVariables = line.split(","); // parse single line with delimiter
@@ -119,12 +123,17 @@ public class SalesRecord {
 		}
 	}
 
+	/** 
+	 * The method to run the Vehicle Price Calculator application. <br>
+	 * First, loads all vehicles then runs queries over them.
+	 */
 	public  void runProgram(){
 		fillWithStrings();
 		matchVehicles();
 		query();
 	}
 	
+	/** Takes input from user, and runs the query depending the input */
 	public void query() { 
 		Scanner scan = new Scanner(System.in);
 		String infoMessage = "Please press, "+"\n0 to exit."+"\n1 to see all sold vehicles list."+

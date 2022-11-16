@@ -1,6 +1,6 @@
 package business;
 
-public class Bicycle extends Vehicle{
+public class Bicycle extends Vehicle {
 	private String chainType;
 	private String seatPost;
 	private double sct;
@@ -8,16 +8,20 @@ public class Bicycle extends Vehicle{
 	public final int BASE_PRICE = 10000;
 	
 	
-	// No-argument constructor
+	/** No-argument constructor */
 	public Bicycle(){
 		
 	}
-	// Full-argument constructor
-	public Bicycle(String _vehicleId,String _monthOfSale,String _cityOfSale,int _productionYear,String _chainType,String _seatPost,int _vat){
+	
+	/** Full-argument constructor */
+	public Bicycle(String _vehicleId,String _monthOfSale, String _cityOfSale, int _productionYear,
+			String _chainType, String _seatPost, int _vat){
+		
 		super(_vehicleId,_monthOfSale,_cityOfSale,_productionYear,_vat);
 		this.chainType = _chainType;
 		this.seatPost = _seatPost;
 	}
+	
 	/**
      * Copy constructor for preventing privacy-leak
      * @param bicycle object that we will make a new copy of its properties.
@@ -40,15 +44,13 @@ public class Bicycle extends Vehicle{
 	public void calculateSCT() {
 		sct = (calculateChainTypeSCT()*calculateSeatPostSCT()*0.1)+calculateMonthOfSaleSCT(getMonthOfSale());
 	}
-	/* This method calculates the total paid amount of bicycle.
-	 * 
-	 */
+	
+	/** This method calculates the total paid amount of bicycle. */
 	public void calculatePaidPrice() {
 		paidPrice = (BASE_PRICE*0.9)*(1+getSCT())+(1+(getVat()/100));
 	}
-	/*
-	 * This private method is a helper method to calculate sct value due to chain type.
-	 */
+	
+	/** This private method is a helper method to calculate sct value due to chain type. */
 	private double calculateChainTypeSCT() {
 		double chainTypeSCT = 0;
 		if(getChainType().equals("derailleur"))	chainTypeSCT = 1.1;
@@ -56,9 +58,8 @@ public class Bicycle extends Vehicle{
 		else { chainTypeSCT = 1.3;}
 		return chainTypeSCT;
 	}
-	/*
-	 * This private method is a helper method to calculate sct value due to chain type.
-	 */
+	
+	/** This private method is a helper method to calculate sct value due to chain type. */
 	private double calculateSeatPostSCT() {
 		double seatPostSCT = 0;
 		if(getSeatPost().equals("carbonfiber")) seatPostSCT = 0.8;
@@ -84,7 +85,7 @@ public class Bicycle extends Vehicle{
 		}
 	}
 	
-	/*	Bicycle toString method has additional chain type and seat post attributes. */
+	/**	Bicycle toString method has additional chain type and seat post attributes. */
 	public String toString() {
 		String str = super.toString();
 		str += String.format(" | Chain type: %-11s", getChainType());

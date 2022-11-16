@@ -4,11 +4,13 @@ public class Sedan extends Automobile{
 	private String roofType;
 	private double sct;
 	private double paidPrice;
-	// No-argument constructor
+	
+	/** No-argument constructor */
 	public Sedan() {
 		
 	}
-	// Full-argument constructor
+	
+	/** Full-argument constructor */
 	public Sedan(String _vehicleId,String _monthOfSale,String _cityOfSale,int _productionYear,String _roofType,float _engineVolume,int _vat) {
 		super(_vehicleId,_monthOfSale,_cityOfSale,_productionYear,_engineVolume,_vat);
 		this.roofType = _roofType;
@@ -29,21 +31,17 @@ public class Sedan extends Automobile{
 	public double getPaidPrice() { return paidPrice;}
 	public void setRoofType(String _roofType) { this.roofType = _roofType;}
 	
-	/* This method calculates the special consumer tax of sedan
-	 * 
-	 */
+	/** This method calculates the special consumer tax of sedan */
 	public void calculateSCT() {
 		sct = (getEngineVolume()*0.2*calculateRoofTypeSCT())/calculateProductionYearSCT(getProductionYear());
 	}
-	/* This method calculates the total paid amount of sedan
-	 * 
-	 */
+	
+	/** This method calculates the total paid amount of sedan */
 	public void calculatePaidPrice() {
 		paidPrice = getBasePrice()*(1+getSCT()*0.8)+(1+(getVat()/100));
 	}
-	/*
-	 * This method is a helper method to calculate sct value due to roof type. 
-	 */
+	
+	/** This method is a helper method to calculate sct value due to roof type. */
 	private double calculateRoofTypeSCT(){
 		double roofTypeSCT = 0;
 		if(getRoofType().equals("regular")) roofTypeSCT = 0.5;
@@ -51,6 +49,7 @@ public class Sedan extends Automobile{
 		else { roofTypeSCT = 0.8;}
 		return roofTypeSCT;
 	}
+	
 	/**
 	 * This method is overridden method to check whether two sedan type automobiles are equal or not.
 	 * @param _aSedan
@@ -60,7 +59,8 @@ public class Sedan extends Automobile{
 		if(_aSedan == null) {
 			System.out.println("There is no such a Sedan type automobile.");
 			return false;
-		}else {
+		} 
+		else {
 			return(super.equals(_aSedan) && this.roofType.equals( _aSedan.getRoofType()));
 		}
 	}

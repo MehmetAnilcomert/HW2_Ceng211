@@ -7,11 +7,12 @@ public class PickupTruck extends Vehicle {
 	private double paidPrice;
 	public final int BASE_PRICE = 250000;
 	
-	//No argument constructor
+	/** No-argument constructor */
 	public PickupTruck() {
 		
 	}
-	// Full argument constructor
+	
+	/** Full-argument constructor */
 	public PickupTruck(String _vehicleId,String _monthOfSale,String _cityOfSale,int _productionYear,String _cabType, String _truckBedType,int _vat) {
 		super(_vehicleId,_monthOfSale,_cityOfSale,_productionYear,_vat);
 		this.cabType = _cabType;
@@ -37,20 +38,17 @@ public class PickupTruck extends Vehicle {
 	public void setCabType(String cabType) { this.cabType = cabType;}
 	public void setTruckBedType(String truckBedType) { this.truckBedType = truckBedType;}
 	
-	/* This method calculates the special consumer tax of pickup truck
-	 * 
-	 */
+	/** This method calculates the special consumer tax of pickup truck */
 	public void calculateSCT() {
 		sct = (calculateTruckBedType()*calculateProductionYearSCT(getProductionYear()) / calculateCabType());
 	}
 	
-	/* This method calculates the total paid amount of pickup truck
-	 * 
-	 */
+	/** This method calculates the total paid amount of pickup truck */
 	public void calculatePaidPrice() {
 		paidPrice = BASE_PRICE*(1+(getSCT()*0.6))+(1+(getVat()/100));
 	}
-	//Helper method to calculateSCT()
+	
+	/** Helper method to calculateSCT() */
 	private double calculateTruckBedType() {
 		double truckBedType = 0;
 		if(getTruckBedType().equals("regular"))
@@ -62,7 +60,8 @@ public class PickupTruck extends Vehicle {
 		}
 		return truckBedType;
 	}
-	//Helper method to calculateSCT()
+	
+	/** Helper method to calculateSCT() */
 	private double calculateCabType() {
 		double cabType = 0;
 		if(getCabType().equals("regular"))
@@ -74,6 +73,7 @@ public class PickupTruck extends Vehicle {
 		}
 		return cabType;
 	}
+	
 	/**
 	 * This method is overriden method to check whether two pickups are equal or not.
 	 * @param _apickUpTruck
@@ -90,7 +90,7 @@ public class PickupTruck extends Vehicle {
 		}
 	}
 	
-	/*	Pickup truck toString method has additional cab type and truck bed type attributes. */
+	/**	Pickup truck toString method has additional cab type and truck bed type attributes. */
 	public String toString(){
 		String str = super.toString();
 		str += String.format(" | Cab type: %-13s", getCabType());

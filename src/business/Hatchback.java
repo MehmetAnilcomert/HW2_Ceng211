@@ -4,15 +4,20 @@ public class Hatchback extends Automobile{
 	private String cityMode;
 	private double sct;
 	private double paidPrice;
-	// No-argument constructor
+	
+	/** No-argument constructor */
 	public Hatchback(){
 		
 	}
-	// Full-argument constructor
-	public Hatchback(String _vehicleId,String _monthOfSale,String _cityOfSale,int _productionYear,String _cityMode,float _engineVolume,int _vat){
+	
+	/** Full-argument constructor */
+	public Hatchback(String _vehicleId,String _monthOfSale,String _cityOfSale,int _productionYear,
+			String _cityMode,float _engineVolume,int _vat){
+		
 		super(_vehicleId,_monthOfSale,_cityOfSale,_productionYear,_engineVolume,_vat);
 		this.cityMode = _cityMode;
 	}
+	
 	/**
      * Copy constructor for preventing privacy-leak
      * @param hatchback object that we will make a new copy of its properties.
@@ -27,27 +32,24 @@ public class Hatchback extends Automobile{
 	public double getPaidPrice() { return paidPrice;}
 	public void setCityMode(String _cityMode) { this.cityMode = _cityMode;}
 	
-	/* This method calculates the special consumer tax of hatchback
-	 * 
-	 */
+	/** This method calculates the special consumer tax of hatchback  */
 	public void calculateSCT() {
 		sct = (getEngineVolume()*0.3*calculateProductionYearSCT(getProductionYear()))+calculateCityModeSCT();
 	}
-	/* This method calculates the total paid amount of hatchback
-	 * 
-	 */
+	
+	/** This method calculates the total paid amount of hatchback */
 	public void calculatePaidPrice() {
 		paidPrice = getBasePrice()*(1+getSCT()*0.8)+(1+(getVat()/100));
 	}
-	/*
-	 * This method is a helper method to calculate sct value due to city mode. 
-	 */
+	
+	/** This method is a helper method to calculate sct value due to city mode. */
 	private double calculateCityModeSCT() {
 		double cityModeSCT = 0;
 		if(getCityMode().equals("yes")) cityModeSCT = 0.15;
 		else { cityModeSCT = 0.1;}
 		return cityModeSCT;
 	}
+	
 	/**
 	 * This method is overriden method to check whether two hatchback type automobiles are equal or not.
 	 * @param _aHatchback

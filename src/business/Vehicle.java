@@ -2,6 +2,9 @@ package business;
 
 enum vehicleTypes {Sedan,Hatchback,Minivan,Pickup,Bicycle};
 
+/**
+ * A base class for future objects such as Automobile or Bicycle
+ */
 public class Vehicle {
 	private String vehicleId;
 	private String monthOfSale;
@@ -11,11 +14,11 @@ public class Vehicle {
 	private vehicleTypes vehicleType;
 	
 	
-	// No-argument constructor
+	/** No-argument constructor */
 	public Vehicle() {
 	}
 	
-	// Full-argument constructor.
+	/** Full-argument constructor. */
 	public Vehicle(String _vehicleId,String _monthOfSale,String _cityOfSale,int _productionYear,int _vat) {
 		this.vehicleId = _vehicleId;
 		this.monthOfSale = _monthOfSale;
@@ -58,7 +61,7 @@ public class Vehicle {
 	}
     
 	
-	//  Getters and setters for instance variables.
+	//  Getters for instance variables.
 	public String getVehicleId() { return vehicleId;}
 	public String getCityOfSale() { return cityOfSale;}
 	public String getMonthOfSale() { return monthOfSale;}
@@ -66,6 +69,7 @@ public class Vehicle {
 	public int getVat() { return vat;}
 	public vehicleTypes getVehicleType() { return vehicleType;}
 	
+	//  Setters for instance variables.
 	public void setVehicleId(String vehicleId) { this.vehicleId = vehicleId;}
 	public void setCityOfSale(String cityOfSale) { this.cityOfSale = cityOfSale;}
 	public void setMonthOfSale(String monthOfSale) { this.monthOfSale = monthOfSale;}
@@ -84,6 +88,7 @@ public class Vehicle {
 		else { productionYearSCT = 1.6;}
 		return productionYearSCT;
 	}
+	
 	/*
 	 * This method calculates and returns SCT value due to month of sale of vehicles.
 	 * So it can be used to calculate SCT values of vehicles
@@ -104,16 +109,18 @@ public class Vehicle {
 	 * @return boolean
 	 */
 	public boolean equals(Vehicle _aVehicle) {
-		if(_aVehicle == null) {
+		if(_aVehicle == null) { // first, null check
 			System.out.println("There is no such a Vehicle.");
 			return false;
-		}else {
+		}
+		else {
 			return (getVehicleId().equals(_aVehicle.getVehicleId())  && 
 					getMonthOfSale().equals(_aVehicle.getMonthOfSale()) && 
 					getCityOfSale().equals(_aVehicle.getCityOfSale()) &&
 					getProductionYear() == _aVehicle.getProductionYear());
 		}
 	}
+	
 	/**
 	 * This method is overridden method to convert string format of vehicle's attributes.
 	 * @return String

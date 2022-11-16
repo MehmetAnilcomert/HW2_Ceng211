@@ -5,8 +5,16 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Reads files and returns ArrayList of String lines <br>
+ * If the file not found, program exits <strong>with status code 1</strong>.
+ */
 public class FileIO {
 	
+	/**
+	 * Reads files and returns ArrayList of String lines <br>
+	 * If the file not found, program exits <strong>with status code 1</strong>.
+	 */
 	public static ArrayList<String> readCsv(String filePath) {
         ArrayList<String> soldArrayList = new ArrayList<>(); // an ArraList to put selling informations in.
         // Try-catch usage for prevent leaks.

@@ -1,13 +1,17 @@
 package business;
 
-public class Automobile extends Vehicle{
+
+/**
+ * Subclass of vehicle, a base class for Sedan or Minivan
+ */
+public class Automobile extends Vehicle {
 	private float engineVolume;
 	public final int BASE_PRICE = 200000;
-	// No-argument constructor
-	public Automobile(){
-		
-	}
-	// Full-argument constructor.
+	
+	/** No-argument constructor */
+	public Automobile(){}
+	
+	/** Full-argument constructor */
 	public Automobile(String _vehicleId,String _monthOfSale,String _cityOfSale,int _productionYear,float _engineVolume,int _vat){
 		super(_vehicleId,_monthOfSale,_cityOfSale,_productionYear,_vat);
 		this.setEngineVolume(_engineVolume);
@@ -40,12 +44,9 @@ public class Automobile extends Vehicle{
 			return(super.equals(_anAutomobile) && this.engineVolume == _anAutomobile.getEngineVolume());
 		}
 	}
-	/*	Automobile toString method has additional engine volume attribute.
-	 * 
-	 */
+	
+	/**	Automobile toString method has additional engine volume attribute. */
 	public String toString() {
-		
 		return(super.toString()+" | Engine volume: "+ getEngineVolume()+"     ");
 	}
-
 }
